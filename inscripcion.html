@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de inscripcion - UTCJ</title>
+    <link rel="stylesheet" href="cupos.css">
+</head>
+<body>
+
+      <header class="encabezado">
+    <h1>Formulario de Inscripción</h1>
+    <p>Regístrate en la actividad que elijas y demuestra tu espíritu de toro bravo 🐂</p>
+  </header>
+
+  <main class="contenedor-formulario">
+    <form class="formulario">
+      <label for="matricula">Matrícula:</label>
+      <input type="text" id="matricula" placeholder="Ejemplo: 2300456" required>
+
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" placeholder="Tu nombre completo" required>
+
+      <label for="grupo">Grupo:</label>
+      <input type="text" id="grupo" placeholder="Ejemplo: DSM42" required>
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" rows="4" placeholder="Escribe por qué deseas unirte a esta actividad..." required></textarea>
+
+      <!-- Checkbox oculto para el mensaje -->
+      <input type="checkbox" id="enviado" class="toggle-mensaje">
+
+      <div class="botones">
+        <label for="enviado" class="btn-enviar">Enviar inscripción</label>
+        <a href="cupos.html" class="btn-regresar">Regresar a Cupos</a>
+      </div>
+
+      <!-- Mensaje visual -->
+      <div class="mensaje-exito">
+        ✅ Inscripción enviada correctamente
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>© Universidad Tecnológica de Ciudad Juárez</p>
+  </footer>
+
+</body>
+</html>
