@@ -1,0 +1,179 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Encabezado */
+header {
+  background-color: #00783a;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header p {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+/* Barra de navegación */
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #e9f5ee;
+  padding: 10px;
+  border-bottom: 2px solid #00783a;
+}
+
+.navbar a {
+  color: #00783a;
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 2px solid #00783a;
+  border-radius: 0px;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.navbar a:hover, .navbar a.active {
+  background-color: #00783a;
+  color: white;
+}
+
+/* Contenedor del formulario */
+.form-container {
+  background-color: white;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #00783a;
+  margin-bottom: 1rem;
+}
+
+/* Campos */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+select, textarea {
+  border: 2px solid #00783a;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  resize: none;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Botones */
+.btn-enviar, .btn-regresar {
+  background-color: #00783a;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-enviar:hover, .btn-regresar:hover {
+  background-color: #005f2e;
+}
+
+/* Checkbox oculto */
+.toggle-mensaje {
+  display: none;
+}
+
+/* Mensaje de éxito */
+.mensaje-exito {
+  display: none;
+  text-align: center;
+  background-color: #d8f3dc;
+  color: #00783a;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Mostrar mensaje al marcar el checkbox */
+.toggle-mensaje:checked ~ .mensaje-exito {
+  display: block;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #00783a;
+  color: white;
+  padding: 10px;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+  .form-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  .navbar a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .form-container {
+    width: 80%;
+    padding: 2rem;
+  }
+}
+
+/* PC mediana */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .form-container {
+    max-width: 600px;
+  }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1441px) {
+  .form-container {
+    max-width: 700px;
+  }
+}
