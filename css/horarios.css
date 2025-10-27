@@ -6,28 +6,41 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  background-color: #f5f5f5;
-  color: #111;
+
+/* ===== NAV estilo UTCJ ===== */
+.navbar-utcj {
+  background-color: #002C5F;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
-/* encabezado*/
-.encabezado {
-  text-align: center;
-  background: linear-gradient(90deg, #009739, #00b359);
+.navbar-utcj .logo img {
+  height: 70px;
+  width: auto;
+}
+
+.navbar-utcj .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+}
+
+.navbar-utcj .nav-links li a {
   color: white;
-  padding: 2rem 1rem;
-  border-bottom: 4px solid black;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.encabezado h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.navbar-utcj .nav-links li a:hover {
+  color: #F27021; /* color naranja del sitio UTCJ */
 }
 
-.encabezado p {
-  font-size: 1.2rem;
-}
+
 /* Botones */
 .botones {
   margin-top: 1rem;
@@ -37,26 +50,8 @@ body {
   flex-wrap: wrap;
 }
 
-a.btn-inscribirse,
-label.btn-vermas,
-label.btn-vermenos {
-  padding: 0.5rem 1.2rem;
-  border-radius: 25px;
-  border: 2px solid #009739;
-  background: white;
-  color: #009739;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
 
-a.btn-inscribirse:hover,
-label.btn-vermas:hover,
-label.btn-vermenos:hover {
-  background: #009739;
-  color: white;
-}
+
 .contenedor-cupos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -71,40 +66,18 @@ nav{
     justify-content: center;
     gap: 10px;
     padding: 30px;
-    background-color: #00bf63;
+    background-color: #002C5F;
     width: 100vw;
 }
 
-nav > a{
-	color: #FFFFFF;
-	font-weight: 300;
-	text-decoration: none;
-    margin-right: 10px;
-    margin-left: 10px;
-    border: 2px solid #00914b;
-    padding: 5px;
-}
+
 
 nav > a:hover{
 	text-decoration: underline;
 }
 
 
-.tarjeta {
-  position: relative;
-  background: white;
-  border: 2px solid black;
-  border-radius: 15px;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.tarjeta:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
 
 .tarjeta img {
   width: 100%;
@@ -135,26 +108,6 @@ nav > a:hover{
   flex-wrap: wrap;
 }
 
-a.btn-inscribirse,
-label.btn-vermas,
-label.btn-vermenos {
-  padding: 0.5rem 1.2rem;
-  border-radius: 25px;
-  border: 2px solid #009739;
-  background: white;
-  color: #009739;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-a.btn-inscribirse:hover,
-label.btn-vermas:hover,
-label.btn-vermenos:hover {
-  background: #009739;
-  color: white;
-}
 
 .toggle-info {
   display: none;
@@ -189,8 +142,8 @@ label.btn-vermenos:hover {
 
 /* footer */
 .footer {
-  background-color: #009739;
-  color: white;
+  background-color: white;
+  color: 002C5F;
   text-align: center;
   padding: 2rem 1rem;
   margin-top: 2rem;
@@ -267,18 +220,11 @@ label.btn-vermenos:hover {
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #002C5F;
   color: #111;
 }
 
-/* encabezado */
-.encabezado {
-  text-align: center;
-  background: linear-gradient(90deg, #009739, #00b359);
-  color: white;
-  padding: 2rem 1rem;
-  border-bottom: 4px solid black;
-}/* NUEVO DISEÑO DE TARJETAS */
+/* NUEVO DISEÑO DE TARJETAS */
 .contenedor-actividades {
   display: flex;
   flex-direction: column;
@@ -290,7 +236,7 @@ body {
 
 .actividad {
   background-color: #ffffff;
-  border: 2px solid #000000;
+  border: 3px solid black;
   border-radius: 20px;
   padding: 1rem 1.5rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -314,13 +260,13 @@ body {
 .header-actividad h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #004d40;
+  color: #002C5F;
 }
 
 .btn-ver {
   background-color: white;
-  border: 2px solid #009739;
-  color: #009739;
+  border: 2px solid #002C5F;
+  color: #002C5F;
   padding: 0.4rem 1rem;
   border-radius: 25px;
   font-weight: 600;
@@ -329,7 +275,7 @@ body {
 }
 
 .btn-ver:hover {
-  background-color: #009739;
+  background-color: #F4F4F4;
   color: white;
 }
 
@@ -350,7 +296,7 @@ body {
 
 .info h3 {
   margin-bottom: 0.8rem;
-  color: #00695c;
+  color: #002C5F;
 }
 
 .info p {
@@ -360,6 +306,17 @@ body {
 
 /* Responsivo */
 @media (max-width: 768px) {
+    .navbar-utcj {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .navbar-utcj .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
   .contenido-actividad {
     grid-template-columns: 1fr;
   }
