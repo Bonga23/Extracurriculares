@@ -6,54 +6,41 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #002C5F;
     color: #333;
 }
 
-header {
-    background: linear-gradient(90deg, #00b65f, #008b49);
-    color: white;
-    text-align: center;
-    padding: 1rem 0 2rem;
+/* ===== NAV estilo UTCJ ===== */
+.navbar-utcj {
+  background-color: #002C5F;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
-header h1 {
-    font-size: 2rem;
+.navbar-utcj .logo img {
+  height: 70px;
+  width: auto;
 }
 
-header p {
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-    font-weight: 300;
+.navbar-utcj .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
 }
 
-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 30px;
-    background-color: #00bf63;
-    width: 100vw;
+.navbar-utcj .nav-links li a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-nav ul li {
-    margin: 0.5rem;
-}
-
-nav ul li a {
-    color: #FFFFFF;
-	font-weight: 300;
-    margin-right: 10px;
-    margin-left: 10px;
-    border: 2px solid #00914b;
-    padding: 5px;
-}
-
-nav ul li a:hover {
-    background: white;
-    color: #008b49;
-    text-decoration: underline;
+.navbar-utcj .nav-links li a:hover {
+  color: #F27021; /* color naranja del sitio UTCJ */
 }
 
 main {
@@ -80,8 +67,8 @@ main {
 }
 
 .card h2 {
-    background: #00b65f;
-    color: white;
+    background: white;
+    color: #002C5F;
     padding: 0.75rem;
     text-align: center;
     display: flex;
@@ -115,7 +102,7 @@ main {
 }
 
 .info .nota {
-    color: #008b49;
+    color: #002C5F;
     font-weight: 500;
 }
 
@@ -124,8 +111,8 @@ main {
 }
 
 footer {
-    background: #222;
-    color: white;
+    background: white;
+    color: black;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
@@ -171,4 +158,27 @@ footer {
     .info .nota {
         font-size: 0.9rem;
     }
+}
+@media (max-width: 768px) {
+    .navbar-utcj {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .navbar-utcj .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .contenido-actividad {
+    grid-template-columns: 1fr;
+  }
+  .header-actividad {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .btn-ver {
+    width: 100%;
+  }
 }
