@@ -1,32 +1,36 @@
-/* Estilos que lleva la pagina*/
-* {
+
+
+/* ===== NAV estilo UTCJ ===== */
+.navbar-utcj {
+  background-color: #002C5F;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.navbar-utcj .logo img {
+  height: 70px;
+  width: auto;
+}
+
+.navbar-utcj .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
-body {
-  background-color: #f5f5f5;
-  color: #111;
-}
-
-/* encabezado*/
-.encabezado {
-  text-align: center;
-  background: linear-gradient(90deg, #009739, #00b359);
+.navbar-utcj .nav-links li a {
   color: white;
-  padding: 2rem 1rem;
-  border-bottom: 4px solid black;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.encabezado h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.encabezado p {
-  font-size: 1.2rem;
+.navbar-utcj .nav-links li a:hover {
+  color: #F27021; /* color naranja del sitio UTCJ */
 }
 
 /* Tarjetas que usamos (contenedores)*/
@@ -65,7 +69,7 @@ body {
 }
 
 .tarjeta h2 {
-  color: #009739;
+  color: #002C5F;
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
@@ -89,9 +93,9 @@ label.btn-vermas,
 label.btn-vermenos {
   padding: 0.5rem 1.2rem;
   border-radius: 25px;
-  border: 2px solid #009739;
+  border: 2px solid #002C5F;
   background: white;
-  color: #009739;
+  color: #002C5F;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -101,7 +105,7 @@ label.btn-vermenos {
 a.btn-inscribirse:hover,
 label.btn-vermas:hover,
 label.btn-vermenos:hover {
-  background: #009739;
+  background: #002C5F;
   color: white;
 }
 
@@ -113,7 +117,7 @@ label.btn-vermenos:hover {
   display: none;
   margin-top: 1rem;
   background: #fff;
-  border: 2px solid #009739;
+  border: 2px solid #002C5F;
   border-radius: 10px;
   padding: 1rem 1.5rem;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
@@ -138,7 +142,7 @@ label.btn-vermenos:hover {
 
 /* footer */
 .footer {
-  background-color: #009739;
+  background-color: #002C5F;
   color: white;
   text-align: center;
   padding: 2rem 1rem;
@@ -216,18 +220,11 @@ label.btn-vermenos:hover {
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #002C5F;
   color: #111;
 }
 
-/* encabezado */
-.encabezado {
-  text-align: center;
-  background: linear-gradient(90deg, #009739, #00b359);
-  color: white;
-  padding: 2rem 1rem;
-  border-bottom: 4px solid black;
-}
+
 
 .encabezado h1 {
   font-size: 2.2rem;
@@ -250,7 +247,7 @@ body {
 .formulario {
   background: white;
   padding: 2rem 3rem;
-  border: 2px solid #009739;
+  border: 2px solid #002C5F;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   width: 100%;
@@ -262,7 +259,7 @@ body {
 
 .formulario label {
   font-weight: 600;
-  color: #009739;
+  color: #002C5F;
 }
 
 .formulario input,
@@ -277,7 +274,7 @@ body {
 
 .formulario input:focus,
 .formulario textarea:focus {
-  border-color: #009739;
+  border-color: #002C5F;
   outline: none;
 }
 
@@ -292,7 +289,7 @@ body {
 .btn-regresar {
   padding: 0.7rem 1.5rem;
   border-radius: 25px;
-  border: 2px solid #009739;
+  border: 2px solid #002C5F;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
@@ -300,22 +297,22 @@ body {
 }
 
 .btn-enviar {
-  background: #009739;
+  background: #002C5F;
   color: white;
 }
 
 .btn-enviar:hover {
   background: white;
-  color: #009739;
+  color: #002C5F;
 }
 
 .btn-regresar {
   background: white;
-  color: #009739;
+  color: #002C5F;
 }
 
 .btn-regresar:hover {
-  background: #009739;
+  background: #002C5F;
   color: white;
 }
 
@@ -327,7 +324,7 @@ body {
 .mensaje-exito {
   display: none;
   text-align: center;
-  color: #009739;
+  color: #002C5F;
   font-weight: 600;
   margin-top: 1rem;
   animation: aparecer 0.3s ease;
@@ -350,8 +347,8 @@ body {
 }
 
 .footer {
-  background-color: #009739;
-  color: white;
+  background-color: white;
+  color: black;
   text-align: center;
   padding: 1rem;
   border-top: 4px solid black;
@@ -393,5 +390,28 @@ body {
 
 .navegacion a:hover {
   background: white;
-  color: #009739;
+  color: #002C5F;
+}
+@media (max-width: 768px) {
+    .navbar-utcj {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .navbar-utcj .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .contenido-actividad {
+    grid-template-columns: 1fr;
+  }
+  .header-actividad {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .btn-ver {
+    width: 100%;
+  }
 }
