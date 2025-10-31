@@ -110,13 +110,43 @@ main {
     margin-right: 6px;
 }
 
-footer {
-    background: white;
-    color: black;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+/* footer */
+.footer {
+  background-color: white;
+  color: 002C5F;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 4px solid black;
 }
+
+.info-footer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.info-footer h3 {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+
+.info-footer img {
+  width: 40px;
+}
+
+.footer hr {
+  border: none;
+  border-top: 1px solid black;
+  margin: 1rem auto;
+  width: 90%;
+}
+
+.footer p {
+  font-weight: bold;
+}
+
 
 /* Pantallas de 900px */
 @media (max-width: 900px) {

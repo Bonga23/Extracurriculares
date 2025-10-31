@@ -142,8 +142,8 @@ label.btn-vermenos:hover {
 
 /* footer */
 .footer {
-  background-color: #002C5F;
-  color: white;
+  background-color: white;
+  color: 002C5F;
   text-align: center;
   padding: 2rem 1rem;
   margin-top: 2rem;
