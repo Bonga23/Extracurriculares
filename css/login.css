@@ -35,7 +35,7 @@ body {
 
   background: 
     linear-gradient(rgba(0, 44, 95, 0.7), rgba(0, 44, 95, 0.7)),
-    url("img/utcjdeportes.jpg") center/cover no-repeat; 
+    url('../img/utcjdeportes.jpg') center/cover no-repeat; 
   font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding: 0;
