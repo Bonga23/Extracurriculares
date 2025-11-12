@@ -23,10 +23,10 @@
         <h2 class="text-center mb-4">Iniciar sesión</h2>
 
         <!-- Formulario -->
-        <form action="login.php" method="POST">
+        <form action="../controlador/logicalogin.php" method="POST">
           <div class="mb-3">
             <label for="matricula" class="form-label fw-semibold">Matrícula</label>
-            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Ejemplo: 2300456" required>
+            <input type="number" class="form-control" id="matricula" name="matricula" placeholder="Ejemplo: 2300456" required>
           </div>
 
           <div class="mb-3">
@@ -37,7 +37,7 @@
           <button type="submit" class="btn btn-login w-100 mt-3">Ingresar</button>
 
           <div class="extra-links text-center mt-3">
-            <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
             <p><a href="#">¿Olvidaste tu contraseña?</a></p>
           </div>
         </form>

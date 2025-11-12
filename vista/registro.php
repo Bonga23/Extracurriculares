@@ -13,9 +13,9 @@
     <div class="contenedor">
         <div class="formulario">
             <h2>Registrarse</h2>
-            <form action="registrar.php" method="post">
+            <form action="../controlador/registrar.php" method="post">
                 <label for="matricula">Matrícula</label>
-                <input type="text" id="matricula" name="matricula" placeholder="Ejemplo: 12345678" required>
+                <input type="number" id="matricula" name="matricula" placeholder="Ejemplo: 12345678" required>
 
                 <label for="nombre">Nombre completo</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
@@ -32,7 +32,8 @@
                 <button type="submit">Registrarme</button>
             </form>
 
-            <p>¿Ya tienes cuenta? <a href="#">Inicia sesión aquí</a></p>
+            <p>¿Ya tienes cuenta? <a href="loginn.php">Inicia sesión aquí</a></p>
+
         </div>
     </div>
 </body>
