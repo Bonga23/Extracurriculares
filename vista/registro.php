@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="../public/css/registro.css">
 </head>
 <body>
     <header>
-        <img src="img/logo_utcj.png" alt="Logo UTCJ">
+        <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </header>
     <div class="contenedor">
         <div class="formulario">

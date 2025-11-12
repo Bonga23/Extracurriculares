@@ -29,7 +29,7 @@ class Login {
             // Si hay coincidencias
             echo "<script>
                 alert('Inicio de sesión exitoso');
-                window.location.href='extracurriculares.html';
+                window.location.href='../vista/extracurriculares.php';
             </script>";
         } else {
             echo "<script>

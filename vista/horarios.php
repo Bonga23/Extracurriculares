@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horarios - Actividades Extracurriculares</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/horarios.css">
+  <link rel="stylesheet" href="../public/css/horarios.css">
 </head>
 <body>
 <header class="encabezado">
   <nav class="navbar-utcj">
     <div class="logo">
-      <img src="img/logo_utcj.png" alt="Logo UTCJ">
+      <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
     <ul class="nav-links">
       <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
-      <li><a href="extracurriculares.html">Extracurriculares</a></li>
-      <li><a href="horarios.html">Horarios</a></li>
-      <li><a href="cupos.html">Cupos</a></li>
-      <li><a href="cambio-paraescolar.html">Cambios</a></li>
+      <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+      <li><a href="../vista/horarios.php">Horarios</a></li>
+      <li><a href="../vista/cupos.php">Cupos</a></li>
+      <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
     </ul>
   </nav>
 </header>
@@ -35,7 +35,7 @@
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
-        <img src="IMG/basquetbol.jpeg" alt="Basquetbol UTCJ">
+        <img src="../public/img/basquetbol.jpeg" alt="Basquetbol UTCJ">
       </div>
       <div class="info">
         <h3>Horarios e información:</h3>
@@ -54,7 +54,7 @@
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
-        <img src="IMG/futbol_femenil.jpg" alt="Fútbol Femenil UTCJ">
+        <img src="../public/img/futbol_femenil.jpg" alt="Fútbol Femenil UTCJ">
       </div>
       <div class="info">
         <h3>Horarios e información:</h3>
@@ -74,7 +74,7 @@
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
-        <img src="img/atletismo.jpg" alt="Atletismo utcj">
+        <img src="../public/img/atletismo.jpg" alt="Atletismo utcj">
       </div>
       <div class="info">
         <h3>Horarios e información:</h3>
@@ -94,7 +94,7 @@
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
-        <img src="img/futbol_varonil.jpeg" alt="futbol_varonil utcj">
+        <img src="../public/img/futbol_varonil.jpeg" alt="futbol_varonil utcj">
       </div>
       <div class="info">
         <h3>Horarios e información:</h3>
@@ -114,7 +114,7 @@
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
-        <img src="img/taekwondo.jpg" alt="Atletismo utcj">
+        <img src="../public/img/taekwondo.jpg" alt="Atletismo utcj">
       </div>
       <div class="info">
         <h3>Horarios e información:</h3>

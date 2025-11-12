@@ -20,7 +20,7 @@ if (!$conn->query($consulta)===TRUE) {
 }else {
     echo ("<script>
     alert('registrado correctamente');
-    window.location.href='loginn.html'
+    window.location.href='../vista/loginn.php'
     </script>");
 }
 

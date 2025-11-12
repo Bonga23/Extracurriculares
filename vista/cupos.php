@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cupos - Actividades Extracurriculares</title>
-  <link rel="stylesheet" href="css/cupos.css">
+  <link rel="stylesheet" href="../public/css/cupos.css">
 </head>
 <body>
 
@@ -12,14 +12,14 @@
 <header class="encabezado">
   <nav class="navbar-utcj">
     <div class="logo">
-      <img src="img/logo_utcj.png" alt="Logo UTCJ">
+      <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
     <ul class="nav-links">
-      <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
-      <li><a href="extracurriculares.html">Extracurriculares</a></li>
-      <li><a href="horarios.html">Horarios</a></li>
-      <li><a href="cupos.html">Cupos</a></li>
-      <li><a href="cambio-paraescolar.html">Cambios</a></li>
+    <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
+    <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+    <li><a href="../vista/horarios.php">Horarios</a></li>
+    <li><a href="../vista/cupos.php">Cupos</a></li>
+    <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
     </ul>
   </nav>
 </header>
@@ -32,7 +32,7 @@
       <input type="checkbox" id="toggle-basquet" class="toggle-info">
 
       <div class="vista-normal">
-        <img src="IMG/basquetbol.jpeg" alt="Basquetbol UTCJ">
+        <img src="../public/img/basquetbol.jpeg" alt="Basquetbol UTCJ">
         <h2>Basquetbol</h2>
         <p><strong>Cupos totales:</strong> 100</p>
         <p><strong>Cupos ocupados:</strong> 0</p>
@@ -56,7 +56,7 @@
       <input type="checkbox" id="toggle-femenil" class="toggle-info">
 
       <div class="vista-normal">
-        <img src="IMG/futbol_femenil.jpg" alt="Fútbol Femenil UTCJ">
+        <img src="../public/img/futbol_femenil.jpg" alt="Fútbol Femenil UTCJ">
         <h2>Fútbol Femenil</h2>
         <p><strong>Cupos totales:</strong> 200</p>
         <p><strong>Cupos ocupados:</strong> 0</p>
@@ -80,7 +80,7 @@
       <input type="checkbox" id="toggle-atletismo" class="toggle-info">
 
       <div class="vista-normal">
-        <img src="IMG/atletismo.jpg" alt="Atletismo UTCJ">
+        <img src="../public/img/atletismo.jpg" alt="Atletismo UTCJ">
         <h2>Atletismo</h2>
         <p><strong>Cupos totales:</strong> 200</p>
         <p><strong>Cupos ocupados:</strong> 0</p>
@@ -104,7 +104,7 @@
       <input type="checkbox" id="toggle-varonil" class="toggle-info">
 
       <div class="vista-normal">
-        <img src="IMG/futbol_varonil.jpeg" alt="Fútbol Soccer Varonil UTCJ">
+        <img src="../public/img/futbol_varonil.jpeg" alt="Fútbol Soccer Varonil UTCJ">
         <h2>Fútbol Soccer Varonil</h2>
         <p><strong>Cupos totales:</strong> 200</p>
         <p><strong>Cupos ocupados:</strong> 0</p>
@@ -128,7 +128,7 @@
       <input type="checkbox" id="toggle-taekwondo" class="toggle-info">
 
       <div class="vista-normal">
-        <img src="IMG/taekwondo.jpg" alt="Taekwondo UTCJ">
+        <img src="../public/img/taekwondo.jpg" alt="Taekwondo UTCJ">
         <h2>Taekwondo</h2>
         <p><strong>Cupos totales:</strong> 150</p>
         <p><strong>Cupos ocupados:</strong> 0</p>

@@ -6,13 +6,13 @@
   <title>Iniciar sesión - UTCJ</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="../public/css/login.css">
 </head>
 <body>
   <header class="encabezado">
     <nav class="navbar-utcj">
       <div class="logo-login">
-        <img src="img/logo_utcj.png" alt="Logo UTCJ" width="120" height="50">
+        <img src="../public/img/logo_utcj.png" alt="Logo UTCJ" width="120" height="50">
       </div>
     </nav>
   </header>
