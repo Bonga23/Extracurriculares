@@ -1,5 +1,6 @@
 <?php
-require_once('../modelo/conexion.php');
+session_start();//iniciamos la sesion
+require_once('../modelo/conexion.php');//direccion de la clase dnd esta las variables de bd
 
 class Login {
     private $conexion;
@@ -12,7 +13,6 @@ class Login {
     }
 
     public function verificarUsuario($matricula, $password) {
-        // Preparar la consulta (usa el nombre correcto del campo "psw")
         $sql = "SELECT * FROM usuarios WHERE matricula = ? AND psw = ?";
         $stmt = $this->conexion->prepare($sql);
 
@@ -26,11 +26,16 @@ class Login {
         $resultado = $stmt->get_result();
 
         if ($resultado->num_rows > 0) {
-            // Si hay coincidencias
-            echo "<script>
-                alert('Inicio de sesión exitoso');
-                window.location.href='../vista/extracurriculares.php';
-            </script>";
+            // Obtener los datos del usuario
+            $usuario = $resultado->fetch_assoc();
+
+            // Guardar matrícula (y opcionalmente el nombre) en la sesión
+            $_SESSION['Matricula'] = $usuario['matricula'];
+            $_SESSION['Nombre'] = $usuario['nombre'];
+
+            // Redirigir con PHP 
+            header("Location: ../vista/extracurriculares.php");
+            exit();
         } else {
             echo "<script>
                 alert('Matrícula o contraseña incorrecta');
