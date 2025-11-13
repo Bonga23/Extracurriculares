@@ -30,6 +30,7 @@ session_start();
           <div class="mb-3">
             <label for="matricula" class="form-label fw-semibold">Matrícula</label>
             <input type="number" class="form-control" id="matricula" name="matricula" placeholder="Ejemplo: 2300456" required>
+
           </div>
 
           <div class="mb-3">
