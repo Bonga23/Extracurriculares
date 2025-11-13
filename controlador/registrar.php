@@ -1,5 +1,5 @@
 <?php
-require_once 'Conexion.php';
+require_once '../modelo/conexion.php';
 //creamos el objeto de la clase
 $clase=new conexion();
 
@@ -11,18 +11,29 @@ $matricula=$_POST['matricula'];
 $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $psw=$_POST['password'];
+$confirmar = $_POST['confirmar'];
+
+// Verificar si las contraseñas coinciden
+if ($psw !== $confirmar) {
+    echo ("<script>
+        alert('Las contraseñas no coinciden');
+        window.history.back();
+    </script>");
+    exit; // Detener ejecución
+}
 //consulta de sql
 $consulta="INSERT INTO usuarios(matricula,nombre,correo,psw)
 values ('$matricula','$nombre','$correo','$psw')";
 //ejecutar y verificar la consulta
-if (!$conn->query($consulta)===TRUE) {
-    echo ("wawawa ".$consulta . "<br>" .$conn->error );
-}else {
+if ($conn->query($consulta) === TRUE) {
     echo ("<script>
-    alert('registrado correctamente');
-    window.location.href='loginn.html'
+        alert('Registrado correctamente');
+        window.location.href='../vista/loginn.php';
     </script>");
+} else {
+    echo ("Error al registrar: " . $conn->error);
 }
+
 
 //cerrar la conexion
 $clase->cerrar();

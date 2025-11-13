@@ -1,23 +1,42 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['Matricula'])) {
+    // Si no hay sesión activa, redirige al login
+    header("Location: loginn.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de inscripcion - UTCJ</title>
-    <link rel="stylesheet" href="cupos.css">
+    <link rel="stylesheet" href="../public/cupos.css">
 </head>
 <body>
 <header class="encabezado">
   <nav class="navbar-utcj">
     <div class="logo">
-      <img src="img/logo_utcj.png" alt="Logo UTCJ">
+      <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
     <ul class="nav-links">
-      <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
-      <li><a href="extracurriculares.html">Extracurriculares</a></li>
-      <li><a href="horarios.html">Horarios</a></li>
-      <li><a href="cupos.html">Cupos</a></li>
-      <li><a href="cambio-paraescolar.html">Cambios</a></li>
+    <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
+    <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+    <li><a href="../vista/horarios.php">Horarios</a></li>
+    <li><a href="../vista/cupos.php">Cupos</a></li>
+    <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
+    <li class="user-menu">
+    <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
+    <ul class="dropdown">
+    <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
+     </ul>
+    </li>
+
+
+
     </ul>
   </nav>
 </header>

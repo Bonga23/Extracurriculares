@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="../public/css/registro.css">
 </head>
 <body>
     <header>
-        <img src="img/logo_utcj.png" alt="Logo UTCJ">
+        <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </header>
     <div class="contenedor">
         <div class="formulario">
             <h2>Registrarse</h2>
-            <form action="registrar.php" method="post">
+            <form action="../controlador/registrar.php" method="post">
                 <label for="matricula">Matrícula</label>
-                <input type="text" id="matricula" name="matricula" placeholder="Ejemplo: 12345678" required>
+                <input type="number" id="matricula" name="matricula" placeholder="Ejemplo: 12345678" required>
 
                 <label for="nombre">Nombre completo</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
@@ -32,7 +32,8 @@
                 <button type="submit">Registrarme</button>
             </form>
 
-            <p>¿Ya tienes cuenta? <a href="#">Inicia sesión aquí</a></p>
+            <p>¿Ya tienes cuenta? <a href="loginn.php">Inicia sesión aquí</a></p>
+
         </div>
     </div>
 </body>

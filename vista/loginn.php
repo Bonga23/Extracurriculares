@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,13 +9,13 @@
   <title>Iniciar sesión - UTCJ</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="../public/css/login.css">
 </head>
 <body>
   <header class="encabezado">
     <nav class="navbar-utcj">
       <div class="logo-login">
-        <img src="img/logo_utcj.png" alt="Logo UTCJ" width="120" height="50">
+        <img src="../public/img/logo_utcj.png" alt="Logo UTCJ" width="120" height="50">
       </div>
     </nav>
   </header>
@@ -23,10 +26,11 @@
         <h2 class="text-center mb-4">Iniciar sesión</h2>
 
         <!-- Formulario -->
-        <form action="login.php" method="POST">
+        <form action="../controlador/logicalogin.php" method="POST">
           <div class="mb-3">
-            <label for="matricula" class="form-label fw-semibold">xx</label>
-            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Ejemplo: 2300456" required>
+            <label for="matricula" class="form-label fw-semibold">Matrícula</label>
+            <input type="number" class="form-control" id="matricula" name="matricula" placeholder="Ejemplo: 2300456" required>
+
           </div>
 
           <div class="mb-3">
@@ -37,7 +41,7 @@
           <button type="submit" class="btn btn-login w-100 mt-3">Ingresar</button>
 
           <div class="extra-links text-center mt-3">
-            <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
             <p><a href="#">¿Olvidaste tu contraseña?</a></p>
           </div>
         </form>

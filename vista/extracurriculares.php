@@ -1,24 +1,43 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['Matricula'])) {
+    // Si no hay sesión activa, redirige al login
+    header("Location: loginn.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Act. Extracurriculares</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="../public/css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 <header class="encabezado">
   <nav class="navbar-utcj">
     <div class="logo">
-      <img src="img/logo_utcj.png" alt="Logo UTCJ">
+      <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
     <ul class="nav-links">
-      <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
-      <li><a href="extracurriculares.html">Extracurriculares</a></li>
-      <li><a href="horarios.html">Horarios</a></li>
-      <li><a href="cupos.html">Cupos</a></li>
-      <li><a href="cambio-paraescolar.html">Cambios</a></li>
+    <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
+    <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+    <li><a href="../vista/horarios.php">Horarios</a></li>
+    <li><a href="../vista/cupos.php">Cupos</a></li>
+    <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
+    <li class="user-menu">
+    <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
+    <ul class="dropdown">
+    <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
+     </ul>
+    </li>
+
+
+
     </ul>
   </nav>
 </header>
@@ -28,7 +47,7 @@
         <section class="card">
             <h2><i class="fas fa-basketball-ball"></i> Básquetbol</h2>
             <div class="img-container">
-                <img src="img/basquetbol.jpeg" alt="Jugadores de basquetbol">
+                <img src="../public/img/basquetbol.jpeg" alt="Jugadores de basquetbol">
             </div>
             <div class="info">
                 <p>Participa en el equipo de básquetbol y mejora tu coordinación, precisión y trabajo en equipo. Esta actividad 
@@ -41,7 +60,7 @@
         <section class="card">
             <h2><i class="fas fa-futbol"></i> Fútbol Femenil</h2>
             <div class="img-container">
-                <img src="img/futbol_femenil.jpg" alt="Jugadoras de fútbol femenil">
+                <img src="../public/img/futbol_femenil.jpg" alt="Jugadoras de fútbol femenil">
             </div>
             <div class="info">
                 <p>Únete al equipo femenil de fútbol y fortalece tu liderazgo, cooperación y habilidades tácticas. Ideal 
@@ -54,7 +73,7 @@
         <section class="card">
             <h2><i class="fas fa-running"></i> Atletismo</h2>
             <div class="img-container">
-                <img src="img/atletismo.jpg" alt="Atletas corriendo">
+                <img src="../public/img/atletismo.jpg" alt="Atletas corriendo">
             </div>
             <div class="info">
                 <p>Practica velocidad, resistencia y técnica con nuestro grupo de atletismo. Ideal para mejorar tu 
@@ -67,7 +86,7 @@
         <section class="card">
             <h2><i class="fas fa-futbol"></i> Fútbol Soccer Varonil</h2>
             <div class="img-container">
-                <img src="img/futbol_varonil.jpeg" alt="Jugadores de fútbol varonil">
+                <img src="../public/img/futbol_varonil.jpeg" alt="Jugadores de fútbol varonil">
             </div>
             <div class="info">
                 <p>Forma parte del equipo varonil y vive la pasión del fútbol. Desarrolla técnica, estrategia y trabajo 
@@ -80,7 +99,7 @@
         <section class="card">
             <h2><i class="fas fa-football-ball"></i> Taekwondo</h2>
             <div class="img-container">
-                <img src="img/taekwondo.jpg" alt="Jugadores de fútbol americano">
+                <img src="../public/img/taekwondo.jpg" alt="Jugadores de fútbol americano">
             </div>
             <div class="info">
                 <p>El equipo de taekwondo enseña disciplina, respeto y autocontrol. </p>
