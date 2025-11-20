@@ -57,7 +57,7 @@ if (!isset($_SESSION['Matricula'])) {
         <p><strong>Cupos ocupados:</strong> 0</p>
         <p><strong>Cupos disponibles:</strong> 100</p>
         <div class="botones">
-          <a href="inscripcion.html" class="btn-inscribirse">Inscribirse aquí</a>
+          <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-basquet" class="btn-vermas">Ver más</label>
         </div>
       </div>
@@ -81,7 +81,7 @@ if (!isset($_SESSION['Matricula'])) {
         <p><strong>Cupos ocupados:</strong> 0</p>
         <p><strong>Cupos disponibles:</strong> 200</p>
         <div class="botones">
-          <a href="inscripcion.html" class="btn-inscribirse">Inscribirse aquí</a>
+          <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-femenil" class="btn-vermas">Ver más</label>
         </div>
       </div>
@@ -105,7 +105,7 @@ if (!isset($_SESSION['Matricula'])) {
         <p><strong>Cupos ocupados:</strong> 0</p>
         <p><strong>Cupos disponibles:</strong> 200</p>
         <div class="botones">
-          <a href="inscripcion.html" class="btn-inscribirse">Inscribirse aquí</a>
+          <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-atletismo" class="btn-vermas">Ver más</label>
         </div>
       </div>
@@ -129,7 +129,7 @@ if (!isset($_SESSION['Matricula'])) {
         <p><strong>Cupos ocupados:</strong> 0</p>
         <p><strong>Cupos disponibles:</strong> 200</p>
         <div class="botones">
-          <a href="inscripcion.html" class="btn-inscribirse">Inscribirse aquí</a>
+          <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-varonil" class="btn-vermas">Ver más</label>
         </div>
       </div>
@@ -153,7 +153,7 @@ if (!isset($_SESSION['Matricula'])) {
         <p><strong>Cupos ocupados:</strong> 0</p>
         <p><strong>Cupos disponibles:</strong> 150</p>
         <div class="botones">
-          <a href="inscripcion.html" class="btn-inscribirse">Inscribirse aquí</a>
+          <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-taekwondo" class="btn-vermas">Ver más</label>
         </div>
       </div>
