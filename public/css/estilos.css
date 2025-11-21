@@ -10,6 +10,26 @@ body {
     color: #333;
 }
 
+
+.perfil-body {
+    position: relative;
+    overflow: hidden;
+    background: url("../img/fondo.gif") center center / cover no-repeat fixed;
+}
+
+/* Capa azul-transparente */
+.perfil-body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 44, 95, 0.7); /* azul UTCJ con transparencia */
+    z-index: -1; /* se queda detrás del contenido */
+    pointer-events: none; /* no bloquea clics */
+}
+
 /* ===== NAV estilo UTCJ ===== */
 .navbar-utcj {
   background-color: #002C5F;
@@ -257,4 +277,70 @@ main {
   .btn-ver {
     width: 100%;
   }
+}
+
+
+/* ----------- EDICIÓN INTEGRADA EN UNA SOLA CARD ----------- */
+
+.editable {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.edit-icon {
+    color: #F27021;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.editable:hover .edit-icon {
+    color: #ff8f4d;
+}
+
+/* Caja oculta que aparece al editar */
+.edit-box {
+    display: none;
+    margin-top: 12px;
+}
+
+.show-edit {
+    display: block;
+}
+
+/* Inputs armonizados al estilo UTCJ */
+.input-utcj {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    margin-bottom: 12px;
+}
+
+/* Botones UTCJ */
+.btn-utcj-azul {
+    background-color: #002C5F;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-utcj-naranja {
+    background-color: #F27021;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-utcj-azul:hover {
+    background-color: #003b80;
+}
+
+.btn-utcj-naranja:hover {
+    background-color: #ff8b46;
 }

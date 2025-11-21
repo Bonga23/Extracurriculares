@@ -1,12 +1,12 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #002C5F;
+  background-color: #f4f5f7;
   margin: 0;
   padding: 0;
 }
 
 .navbar-utcj {
-  background-color: #002C5F;
+  background-color:  #002C5F;
   display: flex;
   align-items: center;
   justify-content: space-between;

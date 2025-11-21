@@ -2,76 +2,103 @@
 session_start();
 
 if (!isset($_SESSION['Matricula'])) {
-    // Si no hay sesión activa, redirige al login
     header("Location: loginn.php");
     exit();
+}
+
+require_once "../modelo/conexion.php";
+
+// Crear conexión
+$clase = new conexion();
+$conn = $clase->getCon();
+
+// Obtener actividades con sus horarios
+$consultaAct = $conn->prepare("SELECT idActividad, nombreActividad, horario FROM actividades");
+$consultaAct->execute();
+$actividades = $consultaAct->get_result();
+
+// Si el usuario selecciona una actividad, mostramos su horario sin JS
+$horarioSeleccionado = "";
+
+if (isset($_GET['actividad'])) {
+    $id = intval($_GET['actividad']);
+
+    $consultaHor = $conn->prepare("SELECT horario FROM actividades WHERE idActividad = ?");
+    $consultaHor->bind_param("i", $id);
+    $consultaHor->execute();
+    $resultadoHor = $consultaHor->get_result();
+
+    if ($fila = $resultadoHor->fetch_assoc()) {
+        $horarioSeleccionado = $fila['horario'];
+    }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de inscripcion - UTCJ</title>
-    <link rel="stylesheet" href="../public/cupos.css">
+    <title>Formulario de inscripción - UTCJ</title>
+    <link rel="stylesheet" href="../public/css/inscripcion.css">
 </head>
 <body>
+
 <header class="encabezado">
   <nav class="navbar-utcj">
     <div class="logo">
       <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
     <ul class="nav-links">
-    <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
-    <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
-    <li><a href="../vista/horarios.php">Horarios</a></li>
-    <li><a href="../vista/cupos.php">Cupos</a></li>
-    <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
-    <li class="user-menu">
-    <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
-    <ul class="dropdown">
-    <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
-     </ul>
-    </li>
+        <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
+        <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+        <li><a href="../vista/horarios.php">Horarios</a></li>
+        <li><a href="../vista/cupos.php">Cupos</a></li>
+        <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
 
-
-
+        <li class="user-menu">
+            <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
+            <ul class="dropdown">
+                <li><a href="../vista/perfil.php">Configuracion</a></li>
+                <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
+            </ul>
+        </li>
     </ul>
   </nav>
 </header>
 
-  <main class="contenedor-formulario">
-    <form class="formulario">
-      <label for="matricula">Matrícula:</label>
-      <input type="text" id="matricula" placeholder="Ejemplo: 2300456" required>
+<main class="contenedor-formulario">
 
-      <label for="nombre">Nombre completo:</label>
-      <input type="text" id="nombre" placeholder="Tu nombre completo" required>
+    <!-- FORMULARIO -->
+    <form action="../controlador/actividades.php" method="post">
 
-      <label for="grupo">Grupo:</label>
-      <input type="text" id="grupo" placeholder="Ejemplo: DSM42" required>
+        <!-- Matrícula automática -->
+        <input type="hidden" name="matricula" value="<?php echo $_SESSION['Matricula']; ?>">
 
-      <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" rows="4" placeholder="Escribe por qué deseas unirte a esta actividad..." required></textarea>
+        <!-- Selección de actividad -->
+        <label for="actividad">Selecciona una actividad:</label>
+        <select id="actividad" name="idActividad" required onchange="location.href='inscripcion.php?actividad='+this.value">
+            <option value="" disabled selected>Elige una actividad</option>
 
-      <!-- Checkbox oculto para el mensaje -->
-      <input type="checkbox" id="enviado" class="toggle-mensaje">
+            <?php while ($act = $actividades->fetch_assoc()) : ?>
+                <option value="<?php echo $act['idActividad']; ?>"
+                    <?php if (isset($_GET['actividad']) && $_GET['actividad'] == $act['idActividad']) echo "selected"; ?>>
+                    <?php echo $act['nombreActividad']; ?>
+                </option>
+            <?php endwhile; ?>
+        </select>
 
-      <div class="botones">
-        <label for="enviado" class="btn-enviar">Enviar inscripción</label>
-        <a href="cupos.html" class="btn-regresar">Regresar a Cupos</a>
-      </div>
+        <!-- Horario automático -->
+        <label for="horario">Horario:</label>
+        <input type="text" id="horario" name="horario" readonly
+               value="<?php echo $horarioSeleccionado ?: 'Selecciona una actividad'; ?>">
 
-      <!-- Mensaje visual -->
-      <div class="mensaje-exito">
-        ✅ Inscripción enviada correctamente
-      </div>
+        <button type="submit" class="btn-enviar">Enviar inscripción</button>
+
     </form>
-  </main>
+</main>
 
-   <!-- Footer -->
-  <footer class="footer">
+<footer class="footer">
     <div class="info-footer">
       <div>
         <h3>Contacto:</h3>
@@ -84,7 +111,7 @@ if (!isset($_SESSION['Matricula'])) {
     </div>
     <hr>
     <p>© Universidad Tecnológica de Ciudad Juárez</p>
-  </footer>
+</footer>
 
 </body>
 </html>
