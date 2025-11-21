@@ -1,38 +1,29 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['Matricula'])) {
-    header("Location: loginn.php");
-    exit();
-}
-
 require_once '../modelo/conexion.php';
 
 // Objeto de conexión
 $clase = new conexion();
 $conn = $clase->getCon();
 
-// Matrícula desde la sesión
-$matricula = $_SESSION['Matricula'];
-
-// Actividad seleccionada
+// Datos del formulario
+$matricula = $_POST['matricula'];
 $idActividad = $_POST['idActividad'];
 
-/* VALIDAR SI EL ALUMNO YA ESTÁ INSCRITO EN ALGO*/
-$consulta = $conn->prepare("SELECT * FROM inscripciones WHERE matricula = ?");
-$consulta->bind_param("i", $matricula);
-$consulta->execute();
-$res = $consulta->get_result();
+// Validar que no esté inscrito ya en la misma actividad
+$validarIns = $conn->prepare("SELECT * FROM inscripciones WHERE matricula = ? AND idActividad = ?");
+$validarIns->bind_param("ii", $matricula, $idActividad);
+$validarIns->execute();
+$resIns = $validarIns->get_result();
 
-if ($res->num_rows > 0) {
+if ($resIns->num_rows > 0) {
     echo ("<script>
-        alert('Ya estas inscrito en una actividad. Si deseas cambiarla, utiliza el apartado de cambios.');
-        window.location.href='../vista/cambio-paraescolar.php';
+        alert('Ya estás inscrito en esta actividad');
+        window.history.back();
     </script>");
     exit;
 }
 
-/* INSERTAR NUEVA INSCRIPCIÓN*/
+// Insertar inscripción
 $insert = $conn->prepare("INSERT INTO inscripciones (matricula, idActividad) VALUES (?, ?)");
 $insert->bind_param("ii", $matricula, $idActividad);
 

@@ -2,10 +2,30 @@
 session_start();
 
 if (!isset($_SESSION['Matricula'])) {
-    // Si no hay sesión activa, redirige al login
     header("Location: loginn.php");
     exit();
 }
+
+require_once "../modelo/conexion.php";
+$clase = new conexion();
+$conn = $clase->getCon();
+
+$matricula = $_SESSION['Matricula'];
+
+// Verificar si ya está inscrito
+$consulta = $conn->prepare("SELECT idInscripcion FROM inscripciones WHERE matricula = ?");
+$consulta->bind_param("s", $matricula);
+$consulta->execute();
+$inscrito = $consulta->get_result()->num_rows > 0;
+
+// Si ya está inscrito → mandar a cambio con aviso
+// Si NO → mandar a inscripcion
+if ($inscrito) {
+    $irA = "cambio-paraescolar.php?aviso=1";
+} else {
+    $irA = "inscripcion.php";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -14,43 +34,41 @@ if (!isset($_SESSION['Matricula'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horarios - Actividades Extracurriculares</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../public/css/horarios.css">
 </head>
+
 <body>
 <header class="encabezado">
   <nav class="navbar-utcj">
     <div class="logo">
       <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
+
     <ul class="nav-links">
-    <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
-    <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
-    <li><a href="../vista/horarios.php">Horarios</a></li>
-    <li><a href="../vista/cupos.php">Cupos</a></li>
-    <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
-    <li class="user-menu">
-    <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
-    <ul class="dropdown">
-    <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
-     </ul>
-    </li>
+      <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
+      <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+      <li><a href="../vista/horarios.php">Horarios</a></li>
+      <li><a href="../vista/cupos.php">Cupos</a></li>
+      <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
 
-
-
+      <li class="user-menu">
+        <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
+        <ul class="dropdown">
+          <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </header>
 
+<section class="contenedor-actividades">
 
-
-  <!-- Contenedor general -->
- <section class="contenedor-actividades">
-
+  <!-- BASQUETBOL -->
   <div class="actividad">
     <div class="header-actividad">
       <h2>Basquetbol</h2>
-      <button class="btn-ver"><a href="inscripcion.html">Inscribirse</a></button>
+      <button class="btn-ver"><a href="<?php echo $irA; ?>">Inscribirse</a></button>
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
@@ -59,17 +77,18 @@ if (!isset($_SESSION['Matricula'])) {
       <div class="info">
         <h3>Horarios e información:</h3>
         <p><strong>Lugar:</strong> Gimnasio UTCJ</p>
-        <p><strong>Días:</strong> Sabados</p>
+        <p><strong>Días:</strong> Sábados</p>
         <p><strong>Horario:</strong> 8:00 AM – 10:00 AM</p>
-        <p>El equipo de basquetbol promueve el trabajo en equipo, la agilidad y la disciplina.</p>
+        <p>El equipo de basquetbol promueve el trabajo en equipo y la disciplina.</p>
       </div>
     </div>
   </div>
 
+  <!-- FÚTBOL FEMENIL -->
   <div class="actividad">
     <div class="header-actividad">
       <h2>Fútbol Femenil</h2>
-      <button class="btn-ver"> <a href="inscripcion.html">Inscribirse</a></button>
+      <button class="btn-ver"><a href="<?php echo $irA; ?>">Inscribirse</a></button>
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
@@ -80,93 +99,87 @@ if (!isset($_SESSION['Matricula'])) {
         <p><strong>Lugar:</strong> Campo principal UTCJ</p>
         <p><strong>Días:</strong> Viernes</p>
         <p><strong>Horario:</strong> 2:00 PM – 5:00 PM</p>
-        <p>El equipo femenil desarrolla disciplina, coordinación y trabajo en grupo.</p>
+        <p>El equipo femenil desarrolla disciplina y trabajo en grupo.</p>
       </div>
     </div>
   </div>
 
-
-<div class="actividad">
+  <!-- ATLETISMO -->
+  <div class="actividad">
     <div class="header-actividad">
       <h2>Atletismo</h2>
-      <button class="btn-ver"> <a href="inscripcion.html">Inscribirse</a></button>
+      <button class="btn-ver"><a href="<?php echo $irA; ?>">Inscribirse</a></button>
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
-        <img src="../public/img/atletismo.jpg" alt="Atletismo utcj">
+        <img src="../public/img/atletismo.jpg" alt="Atletismo UTCJ">
       </div>
       <div class="info">
         <h3>Horarios e información:</h3>
         <p><strong>Lugar:</strong> Pista atletismo UTCJ</p>
-        <p><strong>Días:</strong> lunes a miercoles</p>
+        <p><strong>Días:</strong> Lunes a miércoles</p>
         <p><strong>Horario:</strong> 2:30 PM – 5:00 PM</p>
-        <p>El club de atletismo promueve la disciplina, la resistencia y la superación personal. 
-           Es perfecto para estudiantes que disfrutan de la velocidad, el salto o el lanzamiento, y desean mejorar su rendimiento físico y mental.</p>
+        <p>El club de atletismo promueve disciplina y resistencia.</p>
       </div>
     </div>
   </div>
 
+  <!-- FUTBOL VARONIL -->
   <div class="actividad">
     <div class="header-actividad">
-      <h2>Futbol Soccer Masculino</h2>
-      <button class="btn-ver"> <a href="inscripcion.html">Inscribirse</a></button>
+      <h2>Fútbol Soccer Masculino</h2>
+      <button class="btn-ver"><a href="<?php echo $irA; ?>">Inscribirse</a></button>
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
-        <img src="../public/img/futbol_varonil.jpeg" alt="futbol_varonil utcj">
+        <img src="../public/img/futbol_varonil.jpeg" alt="Futbol Varonil UTCJ">
       </div>
       <div class="info">
         <h3>Horarios e información:</h3>
         <p><strong>Lugar:</strong> Campo deportivo UTCJ</p>
-        <p><strong>Días:</strong> Viernes </p>
+        <p><strong>Días:</strong> Viernes</p>
         <p><strong>Horario:</strong> 2:00 PM – 5:00 PM</p>
-       <p>El equipo varonil fomenta la estrategia, la cooperación y el esfuerzo constante. 
-        Los jugadores desarrollan habilidades técnicas, tácticas y físicas mientras representan orgullosamente a la UTCJ en competencias.</p>
+        <p>El equipo varonil fomenta estrategia y cooperación.</p>
       </div>
     </div>
   </div>
 
+  <!-- TAEKWONDO -->
   <div class="actividad">
     <div class="header-actividad">
       <h2>Taekwondo</h2>
-      <button class="btn-ver"> <a href="inscripcion.html">Inscribirse</a></button>
+      <button class="btn-ver"><a href="<?php echo $irA; ?>">Inscribirse</a></button>
     </div>
     <div class="contenido-actividad">
       <div class="imagen">
-        <img src="../public/img/taekwondo.jpg" alt="Atletismo utcj">
+        <img src="../public/img/taekwondo.jpg" alt="Taekwondo UTCJ">
       </div>
       <div class="info">
         <h3>Horarios e información:</h3>
         <p><strong>Lugar:</strong> Gimnasio UTCJ</p>
         <p><strong>Días:</strong> Martes y Jueves</p>
         <p><strong>Horario:</strong> 3:00 PM – 5:00 PM</p>
-      <p>El equipo de taekwondo enseña disciplina, respeto y autocontrol. 
-        Ideal para quienes buscan mejorar su concentración, condición física y aprender técnicas 
-        de defensa personal en un ambiente competitivo y respetuoso.</p>
+        <p>Enseña disciplina, respeto y autocontrol.</p>
       </div>
     </div>
   </div>
 
-
 </section>
 
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="info-footer">
-      <div>
-        <h3>Contacto:</h3>
-        <p>Contáctanos para obtener más información...</p>
-      </div>
-      <div>
-        <h3>Mapa del sitio:</h3>
-        <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Mapa">
-      </div>
+<footer class="footer">
+  <div class="info-footer">
+    <div>
+      <h3>Contacto:</h3>
+      <p>Contáctanos para obtener más información...</p>
     </div>
-    <hr>
-    <p>© Universidad Tecnológica de Ciudad Juárez</p>
-  </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <div>
+      <h3>Mapa del sitio:</h3>
+      <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Mapa">
+    </div>
+  </div>
+  <hr>
+  <p>© Universidad Tecnológica de Ciudad Juárez</p>
+</footer>
+
 </body>
 </html>
-
