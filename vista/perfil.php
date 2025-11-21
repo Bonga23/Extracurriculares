@@ -5,7 +5,14 @@ if (!isset($_SESSION['Matricula'])) {
     // Si no hay sesión activa, redirige al login
     header("Location: loginn.php");
     exit();
+
+
 }
+
+    $nombre = "Juan Pérez";
+    $correo = "juan@example.com";
+    $actividad = "Fútbol";
+    $telefono = "Sin registrar";
 
 ?>
 
