@@ -1,13 +1,12 @@
 <?php
 session_start();
-if (!isset($_SESSION['matricula'])) {
-    $_SESSION['matricula'] = "TEST123";
+
+if (!isset($_SESSION['Matricula'])) {
+    // Si no hay sesión activa, redirige al login
+    header("Location: loginn.php");
+    exit();
 }
 
-$nombre = "Juan Pérez";
-$correo = "juan@example.com";
-$actividad = "Fútbol";
-$telefono = "Sin registrar";
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +34,9 @@ $telefono = "Sin registrar";
         <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
 
         <div class="user-menu">
-            <p><?php echo $_SESSION['matricula']; ?> <i class="fa-solid fa-user"></i></p>
+            <p><?php echo $_SESSION['Matricula']; ?> <i class="fa-solid fa-user"></i></p>
             <ul class="dropdown">
-                <li><a href="../cerrarSesion.php"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+                <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
             </ul>
         </div>
     </ul>
