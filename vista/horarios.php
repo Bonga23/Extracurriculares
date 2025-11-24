@@ -55,7 +55,8 @@ if ($inscrito) {
       <li class="user-menu">
         <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
         <ul class="dropdown">
-          <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
+                <li><a href="../vista/perfil.php">Configuracion</a></li>
+                <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
         </ul>
       </li>
     </ul>
