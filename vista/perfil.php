@@ -60,46 +60,19 @@ if (!isset($_SESSION['Matricula'])) {
             <p><strong>Correo:</strong> <?php echo $correo; ?></p>
             <p><strong>Paraescolar inscrita:</strong> <?php echo $actividad; ?></p>
 
-            <!-- TELÉFONO EDITABLE -->
-            <p class="editable" onclick="toggleEdit('telefono-edit')">
-                <strong>Teléfono:</strong> <?php echo $telefono; ?>
-                <i class="fa-solid fa-pen-to-square edit-icon"></i>
-            </p>
-
-            <div id="telefono-edit" class="edit-box">
-                <form action="../controlador/actualizarDatos.php" method="POST">
-                    <input type="text" name="telefono" class="input-utcj" placeholder="Nuevo teléfono" required>
-                    <button type="submit" class="btn-utcj-azul">Guardar</button>
-                </form>
-            </div>
-
             <hr>
 
             <!-- CONTRASEÑA EDITABLE -->
             <p class="editable" onclick="toggleEdit('password-edit')">
-                <strong>Cambiar contraseña</strong>
+                <strong><a href="actualizar_contrasena.php">cambiar contraseña</a></strong>
                 <i class="fa-solid fa-pen-to-square edit-icon"></i>
             </p>
 
-            <div id="password-edit" class="edit-box">
-                <form action="../controlador/cambiarPassword.php" method="POST">
-                    <input type="password" name="actual" class="input-utcj" placeholder="Contraseña actual" required>
-                    <input type="password" name="nueva" class="input-utcj" placeholder="Nueva contraseña" required>
-                    <button type="submit" class="btn-utcj-naranja">Cambiar</button>
-                </form>
-            </div>
+            
 
         </div>
     </div>
 
 </main>
-
-<script>
-function toggleEdit(id) {
-    const section = document.getElementById(id);
-    section.classList.toggle('show-edit');
-}
-</script>
-
 </body>
 </html>
