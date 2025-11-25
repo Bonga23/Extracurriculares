@@ -2,20 +2,18 @@
 session_start();
 
 if (!isset($_SESSION['Matricula'])) {
-    // Si no hay sesión activa, redirige al login
     header("Location: loginn.php");
     exit();
-
-
 }
 
-    $nombre = "Juan Pérez";
-    $correo = "juan@example.com";
-    $actividad = "Fútbol";
-    $telefono = "Sin registrar";
+require_once('../controlador/datos.php'); // <-- IMPORTANTE
+
+$matricula = $_SESSION['Matricula']; // <-- FALTABA
+
+$info = new datos(); // <-- ahora sí encuentra la clase
+$usuario = $info->obtenerDatos($matricula);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,50 +54,24 @@ if (!isset($_SESSION['Matricula'])) {
 
         <div class="info">
 
-            <p><strong>Nombre:</strong> <?php echo $nombre; ?></p>
-            <p><strong>Correo:</strong> <?php echo $correo; ?></p>
-            <p><strong>Paraescolar inscrita:</strong> <?php echo $actividad; ?></p>
+            <p><strong>Nombre:</strong> <?= $usuario['nombre'] ?></p>
+            <p><strong>Correo:</strong> <?= $usuario['correo'] ?></p>
 
-            <!-- TELÉFONO EDITABLE -->
-            <p class="editable" onclick="toggleEdit('telefono-edit')">
-                <strong>Teléfono:</strong> <?php echo $telefono; ?>
-                <i class="fa-solid fa-pen-to-square edit-icon"></i>
+            <p><strong>Paraescolar inscrita:</strong> 
+                <?= $usuario['actividad'] !== null ? $usuario['actividad'] : "Sin actividad" ?>
             </p>
-
-            <div id="telefono-edit" class="edit-box">
-                <form action="../controlador/actualizarDatos.php" method="POST">
-                    <input type="text" name="telefono" class="input-utcj" placeholder="Nuevo teléfono" required>
-                    <button type="submit" class="btn-utcj-azul">Guardar</button>
-                </form>
-            </div>
 
             <hr>
 
-            <!-- CONTRASEÑA EDITABLE -->
-            <p class="editable" onclick="toggleEdit('password-edit')">
-                <strong>Cambiar contraseña</strong>
+            <p class="editable">
+                <strong><a href="actualizar_contrasena.php">Cambiar contraseña</a></strong>
                 <i class="fa-solid fa-pen-to-square edit-icon"></i>
             </p>
-
-            <div id="password-edit" class="edit-box">
-                <form action="../controlador/cambiarPassword.php" method="POST">
-                    <input type="password" name="actual" class="input-utcj" placeholder="Contraseña actual" required>
-                    <input type="password" name="nueva" class="input-utcj" placeholder="Nueva contraseña" required>
-                    <button type="submit" class="btn-utcj-naranja">Cambiar</button>
-                </form>
-            </div>
 
         </div>
     </div>
 
 </main>
-
-<script>
-function toggleEdit(id) {
-    const section = document.getElementById(id);
-    section.classList.toggle('show-edit');
-}
-</script>
 
 </body>
 </html>
