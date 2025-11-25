@@ -2,20 +2,18 @@
 session_start();
 
 if (!isset($_SESSION['Matricula'])) {
-    // Si no hay sesión activa, redirige al login
     header("Location: loginn.php");
     exit();
-
-
 }
 
-    $nombre = "Juan Pérez";
-    $correo = "juan@example.com";
-    $actividad = "Fútbol";
-    $telefono = "Sin registrar";
+require_once('../controlador/datos.php'); // <-- IMPORTANTE
+
+$matricula = $_SESSION['Matricula']; // <-- FALTABA
+
+$info = new datos(); // <-- ahora sí encuentra la clase
+$usuario = $info->obtenerDatos($matricula);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,23 +54,24 @@ if (!isset($_SESSION['Matricula'])) {
 
         <div class="info">
 
-            <p><strong>Nombre:</strong> <?php echo $nombre; ?></p>
-            <p><strong>Correo:</strong> <?php echo $correo; ?></p>
-            <p><strong>Paraescolar inscrita:</strong> <?php echo $actividad; ?></p>
+            <p><strong>Nombre:</strong> <?= $usuario['nombre'] ?></p>
+            <p><strong>Correo:</strong> <?= $usuario['correo'] ?></p>
+
+            <p><strong>Paraescolar inscrita:</strong> 
+                <?= $usuario['actividad'] !== null ? $usuario['actividad'] : "Sin actividad" ?>
+            </p>
 
             <hr>
 
-            <!-- CONTRASEÑA EDITABLE -->
-            <p class="editable" onclick="toggleEdit('password-edit')">
-                <strong><a href="actualizar_contrasena.php">cambiar contraseña</a></strong>
+            <p class="editable">
+                <strong><a href="actualizar_contrasena.php">Cambiar contraseña</a></strong>
                 <i class="fa-solid fa-pen-to-square edit-icon"></i>
             </p>
-
-            
 
         </div>
     </div>
 
 </main>
+
 </body>
 </html>
