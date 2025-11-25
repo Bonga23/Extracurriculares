@@ -6,6 +6,28 @@ if (!isset($_SESSION['Matricula'])) {
     header("Location: loginn.php");
     exit();
 }
+  //esta parte es para los contadores
+    require_once "../modelo/conexion.php";
+    $db=new conexion();
+    $con=$db->getcon();
+    //cupos por actividad
+    $actividades=[1=>'basquetbol',2=>'futbol femenil',3=>'atletismo',4=>'futbol masculino',5=>'taekwondo'];
+
+    $cupos=[];
+    foreach ($actividades as $id => $nombre) {
+      $cuposTotales=50;//pongo un limite de cupos
+      //contar cupos con sql
+      $sql=$con->prepare("SELECT COUNT(*) AS total from inscripciones where idActividad=?");
+      $sql->bind_param('i',$id);
+      $sql->execute();
+      $result=$sql->get_result()->fetch_assoc();
+      $ocupados=$result['total'];
+      $disponibles=$cuposTotales-$ocupados;
+
+      $cupos[$id]=["totales"=>$cuposTotales,
+      "ocupados"=>$ocupados,
+      "disponibles"=>$disponibles];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -54,9 +76,9 @@ if (!isset($_SESSION['Matricula'])) {
       <div class="vista-normal">
         <img src="../public/img/basquetbol.jpeg" alt="Basquetbol UTCJ">
         <h2>Basquetbol</h2>
-        <p><strong>Cupos totales:</strong> 100</p>
-        <p><strong>Cupos ocupados:</strong> 0</p>
-        <p><strong>Cupos disponibles:</strong> 100</p>
+        <p><strong>Cupos totales:</strong> <?=$cupos[1]['totales']?></p>
+        <p><strong>Cupos ocupados:</strong> <?=$cupos[1]['ocupados']?></p>
+        <p><strong>Cupos disponibles:</strong> <?=$cupos[1]['disponibles']?></p>
         <div class="botones">
           <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-basquet" class="btn-vermas">Ver más</label>
@@ -78,9 +100,9 @@ if (!isset($_SESSION['Matricula'])) {
       <div class="vista-normal">
         <img src="../public/img/futbol_femenil.jpg" alt="Fútbol Femenil UTCJ">
         <h2>Fútbol Femenil</h2>
-        <p><strong>Cupos totales:</strong> 200</p>
-        <p><strong>Cupos ocupados:</strong> 0</p>
-        <p><strong>Cupos disponibles:</strong> 200</p>
+        <p><strong>Cupos totales:</strong> <?=$cupos[2]['totales']?></p>
+        <p><strong>Cupos ocupados:</strong> <?=$cupos[2]['ocupados']?></p>
+        <p><strong>Cupos disponibles:</strong> <?=$cupos[2]['disponibles']?></p>
         <div class="botones">
           <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-femenil" class="btn-vermas">Ver más</label>
@@ -102,9 +124,9 @@ if (!isset($_SESSION['Matricula'])) {
       <div class="vista-normal">
         <img src="../public/img/atletismo.jpg" alt="Atletismo UTCJ">
         <h2>Atletismo</h2>
-        <p><strong>Cupos totales:</strong> 200</p>
-        <p><strong>Cupos ocupados:</strong> 0</p>
-        <p><strong>Cupos disponibles:</strong> 200</p>
+        <p><strong>Cupos totales:</strong> <?=$cupos[3]['totales']?></p>
+        <p><strong>Cupos ocupados:</strong> <?=$cupos[3]['ocupados']?></p>
+        <p><strong>Cupos disponibles:</strong> <?=$cupos[3]['disponibles']?></p>
         <div class="botones">
           <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-atletismo" class="btn-vermas">Ver más</label>
@@ -126,9 +148,9 @@ if (!isset($_SESSION['Matricula'])) {
       <div class="vista-normal">
         <img src="../public/img/futbol_varonil.jpeg" alt="Fútbol Soccer Varonil UTCJ">
         <h2>Fútbol Soccer Varonil</h2>
-        <p><strong>Cupos totales:</strong> 200</p>
-        <p><strong>Cupos ocupados:</strong> 0</p>
-        <p><strong>Cupos disponibles:</strong> 200</p>
+        <p><strong>Cupos totales:</strong> <?=$cupos[4]['totales']?></p>
+        <p><strong>Cupos ocupados:</strong> <?=$cupos[4]['ocupados']?></p>
+        <p><strong>Cupos disponibles:</strong> <?=$cupos[4]['disponibles']?></p>
         <div class="botones">
           <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-varonil" class="btn-vermas">Ver más</label>
@@ -150,9 +172,9 @@ if (!isset($_SESSION['Matricula'])) {
       <div class="vista-normal">
         <img src="../public/img/taekwondo.jpg" alt="Taekwondo UTCJ">
         <h2>Taekwondo</h2>
-        <p><strong>Cupos totales:</strong> 150</p>
-        <p><strong>Cupos ocupados:</strong> 0</p>
-        <p><strong>Cupos disponibles:</strong> 150</p>
+        <p><strong>Cupos totales:</strong> <?=$cupos[5]['totales']?></p>
+        <p><strong>Cupos ocupados:</strong> <?=$cupos[5]['ocupados']?></p>
+        <p><strong>Cupos disponibles:</strong> <?=$cupos[5]['disponibles']?></p>
         <div class="botones">
           <a href="inscripcion.php" class="btn-inscribirse">Inscribirse aquí</a>
           <label for="toggle-taekwondo" class="btn-vermas">Ver más</label>
