@@ -11,16 +11,20 @@ if (!isset($_SESSION['Matricula'])) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Actualizar contraseña</title>
     <link rel="stylesheet" href="../public/css/actualizar_contrasena.css">
 </head>
 <body>
     
-<header class="encabezado">
+<header>
   <nav class="navbar-utcj">
+
     <div class="logo">
       <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
+
     <ul class="nav-links">
         <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
         <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
@@ -36,25 +40,33 @@ if (!isset($_SESSION['Matricula'])) {
             </ul>
         </li>
     </ul>
+
   </nav>
 </header>
 
 <div class="contenedor">
+
     <h2>Actualizar contraseña</h2>
+
     <form action="../controlador/procesar_actualizacion.php" method="POST" class="formulario">
+
         <div class="grupo">
             <label>Contraseña actual</label>
             <input type="password" name="contrasena_actual" required>
         </div>
+
         <div class="grupo">
             <label>Nueva contraseña</label>
             <input type="password" name="nueva_contrasena" required>
         </div>
+
         <div class="grupo">
             <label>Confirmar nueva contraseña</label>
             <input type="password" name="confirmar_contrasena" required>
         </div>
+
         <button type="submit" class="btn">Actualizar</button>
+
         <a href="extracurriculares.php" class="volver">⮜ Regresar</a>
     </form>
 </div>
