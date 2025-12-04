@@ -42,7 +42,6 @@ session_start();
 
           <div class="extra-links text-center mt-3">
             <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
-            <p><a href="#">¿Olvidaste tu contraseña?</a></p>
           </div>
         </form>
       </div>
