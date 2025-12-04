@@ -1,3 +1,7 @@
+/* ========================================================= */
+/*                     ESTILOS GLOBALES                      */
+/* ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,37 +13,33 @@ body {
   background: 
     linear-gradient(rgba(0, 44, 95, 0.7), rgba(0, 44, 95, 0.7)),
     url('../img/fondo.jpg') center/cover no-repeat; 
-  font-family: "Segoe UI", Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* ------------------------- */
-/*        HEADER UTCJ        */
-/* ------------------------- */
+
+/* ========================================================= */
+/*                        NAVBAR UTCJ                        */
+/* ========================================================= */
 
 .navbar-utcj {
   background-color: rgba(0, 44, 95, 0.9);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
   padding: 10px 50px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
 .navbar-utcj .logo img {
   height: 70px;
-  width: auto;
 }
 
 .navbar-utcj .nav-links {
   list-style: none;
   display: flex;
   gap: 35px;
-  margin: 0;
 }
 
 .navbar-utcj .nav-links li a {
@@ -50,12 +50,61 @@ body {
 }
 
 .navbar-utcj .nav-links li a:hover {
-  color: #F27021; /* color naranja del sitio UTCJ */
+  color: #F27021;
 }
 
+
 /* ------------------------- */
-/*   CONTENEDOR FORMULARIO   */
+/*       USER DROPDOWN       */
 /* ------------------------- */
+
+.user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.user-menu p {
+  cursor: pointer;
+  color: #FFD700;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  top: 100%;
+  right: 0;
+  min-width: 150px;
+  list-style: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown li a {
+  color: white;
+  padding: 10px 16px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown li a:hover {
+  background-color: #444;
+}
+
+.user-menu:hover .dropdown {
+  display: block;
+}
+
+
+/* ========================================================= */
+/*                     CONTENEDOR FORMULARIO                 */
+/* ========================================================= */
+
 .contenedor {
     background-color: white;
     padding: 30px 40px;
@@ -63,16 +112,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.3s;
-    align-items: center;
-    justify-content: center;
-    margin: auto auto;
-
-    margin-top: auto; /* para que el header no tape el contenido */
-
+    margin: auto;
 }
 
 .contenedor h2 {
@@ -80,25 +120,10 @@ body {
     font-weight: 700;
     font-size: 24px;
     margin-bottom: 25px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.3s;
-    align-items: center;
-    justify-content: center;
 }
 
 .formulario .grupo {
     margin-bottom: 18px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.3s;
-    align-items: center;
-    justify-content: center;
-
 }
 
 .formulario label {
@@ -110,18 +135,17 @@ body {
 .formulario input[type="password"] {
     width: 100%;
     padding: 10px 12px;
-    margin-top: 6px;
     border: 2px solid #003366;
     border-radius: 6px;
     font-size: 14px;
     outline: none;
+    margin-top: 6px;
 }
 
 .formulario input[type="password"]:focus {
     border-color: #0059b3;
 }
 
-/* Botón */
 .btn {
     width: 100%;
     padding: 12px 0;
@@ -154,196 +178,85 @@ body {
 }
 
 
-
-
-
-
-/*navbar
-*/
-
-.navbar-utcj {
-  background-color: rgba(0, 44, 95, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-}
-
-.navbar-utcj .logo img {
-  height: 70px;
-  width: auto;
-}
-
-.navbar-utcj .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 35px;
-  margin: 0;
-}
-
-.navbar-utcj .nav-links li a {
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.navbar-utcj .nav-links li a:hover {
-  color: #F27021; /* color naranja del sitio UTCJ */
-}
-
-.user-menu {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-/*estilos de la matricula*/
-.user-menu p {
-  cursor: pointer;
-  color: #FFD700;
-  font-weight: bold;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-
-.dropdown {
-  display: none;
-  position: absolute;
-  background-color: #1a1a1a;
-  border-radius: 6px;
-  list-style: none;
-  padding: 6px 0;
-  margin: 0;
-  top: 100%;
-  right: 0; 
-  min-width: 150px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-
-.dropdown li a {
-  color: white;
-  padding: 10px 16px;
-  display: block;
-  text-decoration: none;
-}
-
-.dropdown li a:hover {
-  background-color: #444;
-}
-
-
-.user-menu:hover .dropdown {
-  display: block;
-}
-
-
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem;
-    gap: 1.5rem;
-}
-
-/* ======================= */
-/*      MEDIA QUERIES      */
-/* ======================= */
+/* ========================================================= */
+/*                     MEDIA QUERIES CLEAN                   */
+/* ========================================================= */
 
 /* ----------- 900px ----------- */
-/* Ajusta tarjetas, formularios y estructura */
 @media (max-width: 900px) {
 
-    /* Navbar */
     .navbar-utcj {
         padding: 10px 20px;
         flex-direction: column;
-        gap: 10px;
         text-align: center;
+        gap: 12px;
     }
 
     .navbar-utcj .nav-links {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
     }
 
-    /* Contenedor */
     .contenedor {
-        width: 85%;
-        margin-top: 160px;
-    }
-
-    main {
-        flex-direction: column;
-        align-items: center;
+        width: 80%;
+        margin-top: 140px;
     }
 }
 
-
 /* ----------- 768px ----------- */
-/* Ajuste para tablets y pantallas medianas */
 @media (max-width: 768px) {
 
     .navbar-utcj {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
         padding: 12px;
+        gap: 12px;
+        text-align: center;
     }
 
     .navbar-utcj .nav-links {
         flex-direction: column;
         gap: 15px;
-        padding: 10px 0;
+    }
+
+    .navbar-utcj .logo img {
+        height: 60px;
+    }
+
+    .contenedor {
+        width: 85%;
+        margin-top: 130px;
+        padding: 25px;
+    }
+
+    .contenedor h2 {
+        font-size: 23px;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+/* ----------- 600px ----------- */
+@media (max-width: 600px) {
+    
+    .navbar-utcj .logo img {
+        height: 55px;
     }
 
     .contenedor {
         width: 90%;
-        margin-top: auto;
-    }
-
-    .formulario input[type="password"] {
-        font-size: 15px;
-        padding: 12px;
-    }
-
-    .btn {
-        font-size: 16px;
-        padding: 12px;
-    }
-}
-
-
-/* ----------- 600px ----------- */
-/* Dispositivos pequeños */
-@media (max-width: 600px) {
-
-    /* Logo más pequeño */
-    .navbar-utcj .logo img {
-        height: 55px;
+        margin-top: 120px;
+        padding: 25px;
     }
 
     .contenedor h2 {
         font-size: 22px;
     }
 
-    .contenedor {
-        width: 92%;
-        padding: 25px;
-        margin-top: auto;
-    }
-
     .formulario label {
         font-size: 13px;
-    }
-
-    .formulario input[type="password"] {
-        font-size: 14px;
-        padding: 10px;
     }
 
     .volver {
@@ -351,9 +264,7 @@ main {
     }
 }
 
-
 /* ----------- 480px ----------- */
-/* Celulares compactos */
 @media (max-width: 480px) {
 
     body {
@@ -366,9 +277,9 @@ main {
     }
 
     .contenedor {
-        width: 94%;
+        width: 95%;
         padding: 20px;
-        margin-top: auto;
+        margin-top: 110px;
     }
 
     .contenedor h2 {
@@ -376,12 +287,8 @@ main {
     }
 
     .btn {
-        font-size: 15px;
         padding: 10px;
-    }
-
-    .nav-links {
-        gap: 10px;
+        font-size: 15px;
     }
 
     .user-menu p {

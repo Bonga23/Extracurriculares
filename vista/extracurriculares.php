@@ -17,7 +17,7 @@ if (!isset($_SESSION['Matricula'])) {
     <link rel="stylesheet" href="../public/css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
+<body class="page">
 <header class="encabezado">
   <nav class="navbar-utcj">
     <div class="logo">

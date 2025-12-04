@@ -18,6 +18,19 @@ body {
 
 }
 
+.page {
+
+  background: 
+    linear-gradient(rgba(0, 44, 95, 1), rgba(0, 44, 95, 1)),
+    url('../img/utcjdeportes.jpg') center/cover no-repeat; 
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+
+}
+
 /* -------- NAVBAR -------- */
 .navbar-utcj {
   background-color: #002C5F;
@@ -204,6 +217,22 @@ main {
 
 /* 600px */
 @media (max-width: 600px) {
+    .navbar-utcj {
+        flex-direction: column;
+    }
+
+    .navbar-utcj .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card img {
+        height: 180px;
+    }
+}
+
+/* 768px */
+@media (max-width: 768px) {
     .navbar-utcj {
         flex-direction: column;
     }
