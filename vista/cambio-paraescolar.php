@@ -37,7 +37,7 @@ $actividades = $listaAct->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambio de actividad - UTCJ</title>
-    <link rel="stylesheet" href="../public/css/inscripcion.css">
+    <link rel="stylesheet" href="../public/css/inscripcion.css?v=1.0">
 </head>
 <body>
 
@@ -47,19 +47,21 @@ $actividades = $listaAct->get_result();
       <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
     <ul class="nav-links">
-        <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
-        <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
-        <li><a href="../vista/horarios.php">Horarios</a></li>
-        <li><a href="../vista/cupos.php">Cupos</a></li>
-        <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
-
-        <li class="user-menu">
-            <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
-            <ul class="dropdown">
-                <li><a href="../vista/perfil.php">Configuracion</a></li>
+    <li><a href="../vista/intro.php">Inicio</a></li>
+    <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+    <li><a href="../vista/horarios.php">Horarios</a></li>
+    <li><a href="../vista/cupos.php">Cupos</a></li>
+    <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
+     <li><a href="../vista/perfil.php">MI cuenta</a></li>
+    <li class="user-menu">
+    <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
+    <ul class="dropdown">
                 <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
-            </ul>
-        </li>
+     </ul>
+    </li>
+
+
+
     </ul>
   </nav>
 </header>
@@ -111,7 +113,12 @@ $actividades = $listaAct->get_result();
       </div>
       <div>
         <h3>Mapa del sitio:</h3>
-        <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Mapa">
+        <a href="https://search.brave.com/search?q=mapa+utcj&summary=1&conversation=b84cb2d6a290a4480c1c31&view=full&map_src=i&loc_id=loc4BFDG6AQ5TE7UBMRUJNOQ3GS2YBGHIQZHAAAAAAA%3D&bbox=-106.876%2C31.398%2C-105.938%2C31.798" 
+   target="_blank" 
+   rel="noopener noreferrer">
+    <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Mapa" style="width:60px; cursor:pointer;">
+</a>
+
       </div>
     </div>
     <hr>

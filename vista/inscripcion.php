@@ -50,19 +50,21 @@ if (isset($_GET['actividad'])) {
       <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
     <ul class="nav-links">
-        <li><a href="https://www.utcj.edu.mx/">Inicio</a></li>
-        <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
-        <li><a href="../vista/horarios.php">Horarios</a></li>
-        <li><a href="../vista/cupos.php">Cupos</a></li>
-        <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
-
-        <li class="user-menu">
-            <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
-            <ul class="dropdown">
-                <li><a href="../vista/perfil.php">Configuracion</a></li>
+    <li><a href="../vista/intro.php">Inicio</a></li>
+    <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+    <li><a href="../vista/horarios.php">Horarios</a></li>
+    <li><a href="../vista/cupos.php">Cupos</a></li>
+    <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
+     <li><a href="../vista/perfil.php">MI cuenta</a></li>
+    <li class="user-menu">
+    <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
+    <ul class="dropdown">
                 <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
-            </ul>
-        </li>
+     </ul>
+    </li>
+
+
+
     </ul>
   </nav>
 </header>

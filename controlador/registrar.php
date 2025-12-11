@@ -22,9 +22,7 @@ if ($psw !== $confirmar) {
     exit; 
 }
 
-/*VALIDACIÓN DE DATOS DUPLICADOS (OPCIÓN 1 — 2 CONSULTAS)*/
-
-// 1. Verificar si la matrícula ya existe
+// Verificar si la matrícula ya existe
 $validarMat = $conn->prepare("SELECT matricula FROM usuarios WHERE matricula = ?");
 $validarMat->bind_param("s", $matricula);
 $validarMat->execute();
@@ -38,7 +36,7 @@ if ($resMat->num_rows > 0) {
     exit;
 }
 
-// 2. Verificar si el correo ya existe
+// Verificar si el correo ya existe
 $validarCorreo = $conn->prepare("SELECT correo FROM usuarios WHERE correo = ?");
 $validarCorreo->bind_param("s", $correo);
 $validarCorreo->execute();

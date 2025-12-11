@@ -1,6 +1,6 @@
 
 
-/* ===== NAV estilo UTCJ ===== */
+/*  NAV    */
 .navbar-utcj {
   background-color: #002C5F;
   display: flex;
@@ -30,7 +30,7 @@
 }
 
 .navbar-utcj .nav-links li a:hover {
-  color: #F27021; /* color naranja del sitio UTCJ */
+  color: #F27021; 
 }
 
 /* Tarjetas que usamos (contenedores)*/

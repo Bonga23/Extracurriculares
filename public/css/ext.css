@@ -1,0 +1,242 @@
+/* =========================================
+   RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+  background:
+    linear-gradient(rgba(0, 44, 95, 0.7), rgba(0, 44, 95, 0.7)),
+    url('../img/utcjdeportes.jpg') center/cover no-repeat;
+  min-height: 100vh;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+.navbar-utcj {
+  background-color: #002C5F;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar-utcj .logo img {
+  height: 60px;
+  width: auto;
+}
+
+.navbar-utcj .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  align-items: center;
+}
+
+.navbar-utcj .nav-links li a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.navbar-utcj .nav-links li a:hover {
+  color: #F27021;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botón cerrar en móvil */
+.close-btn {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  text-align: right;
+  padding: 20px;
+  list-style: none;
+}
+
+/* =========================================
+   USER MENU
+========================================= */
+.user-menu {
+  position: relative;
+}
+
+.user-menu p {
+  cursor: pointer;
+  color: #FFD700;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  top: 100%;
+  right: 0;
+  min-width: 150px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.dropdown li a {
+  color: white;
+  padding: 10px 16px;
+  display: block;
+}
+
+.dropdown li a:hover {
+  background-color: #444;
+}
+
+.user-menu:hover .dropdown {
+  display: block;
+}
+
+/* =========================================
+   CARD PERFIL
+========================================= */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card h2 {
+  color: #002C5F;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+.info {
+  padding: 1rem;
+}
+
+.info p {
+  margin-bottom: 0.8rem;
+}
+
+/* HISTORIAL */
+.historial {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.historial-item {
+  background: #f3f4f6;
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 4px solid #002C5F;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+.footer {
+  background-color: white;
+  color: #002C5F;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 4px solid black;
+}
+
+.info-footer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.info-footer img {
+  width: 40px;
+}
+
+/* =========================================
+   RESPONSIVIDAD
+========================================= */
+
+/* Menú móvil */
+@media (max-width: 850px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-utcj .nav-links {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 230px;
+      height: 100vh;
+      background: #002C5F;
+      flex-direction: column;
+      justify-content: start;
+      padding: 20px 0;
+      gap: 25px;
+      transition: 0.3s ease-in-out;
+      z-index: 9999;
+  }
+
+  .navbar-utcj .nav-links.active {
+    right: 0;
+  }
+
+  .close-btn {
+    display: block;
+  }
+}
+
+/* Cards */
+@media (max-width: 600px) {
+  .card {
+    max-width: 95%;
+  }
+}
+
+/* Texto general */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;
+  }
+}

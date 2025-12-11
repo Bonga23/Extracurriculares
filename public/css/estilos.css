@@ -31,7 +31,7 @@ body {
 
 }
 
-/* -------- NAVBAR -------- */
+/*  NAVBAR  */
 .navbar-utcj {
   background-color: #002C5F;
   display: flex;
@@ -66,7 +66,7 @@ body {
   color: #F27021;
 }
 
-/* -------- CONTENEDOR PRINCIPAL -------- */
+/*  CONTENEDOR PRINCIPAL  */
 main {
     display: flex;
     flex-wrap: wrap;
@@ -128,7 +128,7 @@ main {
     line-height: 1.5;
 }
 
-/* ----- FOOTER ----- */
+/*  FOOTER  */
 .footer {
   background-color: white;
   color: #002C5F;
@@ -149,7 +149,7 @@ main {
   width: 40px;
 }
 
-/* ----- USER MENU ----- */
+/*  USER MENU  */
 .user-menu {
   position: relative;
   display: flex;
@@ -193,67 +193,96 @@ main {
 .user-menu:hover .dropdown {
   display: block;
 }
+/* HISTORIAL */
+.historial {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-/* ============================
-     MEDIA QUERIES
-============================ */
+.historial-item {
+    background: #f3f4f6;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #002C5F;
+}
+
+.historial-item p {
+    margin: 2px 0;
+}
+.separarActividad{
+  color: yellow;
+}
+/*  responsividad*/
 
 /* 900px */
-@media (max-width: 900px) {
-    .card {
-        max-width: 90%;
-    }
 
-    .navbar-utcj {
-        padding: 10px;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .navbar-utcj .nav-links {
-        gap: 15px;
-    }
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  
 }
+  .close-btn {
+      display: none;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+      padding: 20px;
+      width: 100%;
+      text-align: right;
+      list-style: none;
+      margin-bottom: 20px;
+  }
 
-/* 600px */
-@media (max-width: 600px) {
-    .navbar-utcj {
-        flex-direction: column;
-    }
+@media (max-width: 850px) {
 
-    .navbar-utcj .nav-links {
-        flex-direction: column;
-        gap: 10px;
-    }
+  /* Mostrar botón hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
 
-    .card img {
-        height: 180px;
-    }
-}
+  /* MENÚ LATERAL */
+  .navbar-utcj .nav-links {
+      position: fixed !important; /* menú sale del nav */
+      top: 0;
+      right: -250px;   /* oculto */
+      width: 230px;
+      height: 100vh;
+      background: #002C5F;
+      flex-direction: column;
+      justify-content: start;
+      padding: 20px 0;          /* <-- el bueno, ya no 100px */
+      gap: 25px;
+      transition: 0.3s ease-in-out;
+      z-index: 9999 !important;
+  }
 
-/* 768px */
-@media (max-width: 768px) {
-    .navbar-utcj {
-        flex-direction: column;
-    }
+  /* Mostrar menú cuando activo */
+  .navbar-utcj .nav-links.active {
+    right: 0;
+  }
 
-    .navbar-utcj .nav-links {
-        flex-direction: column;
-        gap: 10px;
-    }
+  /* Navbar en móvil */
+  .navbar-utcj {
+    padding: 10px 20px;
+  }
 
-    .card img {
-        height: 180px;
-    }
-}
-
-/* 480px */
-@media (max-width: 480px) {
-    body {
-        font-size: 0.9rem;
-    }
-
-    .card {
-        max-width: 95%;
-    }
+  /* Botón cerrar */
+  .close-btn {
+      display: block;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+      padding: 20px;
+      width: 100%;
+      text-align: right;
+      list-style: none;
+      margin-bottom: 20px;
+  }
 }

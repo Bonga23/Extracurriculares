@@ -28,14 +28,15 @@ session_start();
         <!-- Formulario -->
         <form action="../controlador/logicalogin.php" method="POST">
           <div class="mb-3">
-            <label for="matricula" class="form-label fw-semibold">Matrícula</label>
-            <input type="number" class="form-control" id="matricula" name="matricula" placeholder="Ejemplo: 2300456" required>
-
+            <label for="usuario" class="form-label fw-semibold">Matrícula o correo</label>
+            <input type="text" class="form-control" id="usuario" name="usuario"
+                   placeholder="ingresa tu matricula o correo" required>
           </div>
 
           <div class="mb-3">
             <label for="password" class="form-label fw-semibold">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+            <input type="password" class="form-control" id="password" name="password"
+                   placeholder="Ingresa tu contraseña" required>
           </div>
 
           <button type="submit" class="btn btn-login w-100 mt-3">Ingresar</button>

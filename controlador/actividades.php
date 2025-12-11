@@ -9,22 +9,37 @@ $conn = $clase->getCon();
 $matricula = $_POST['matricula'];
 $idActividad = $_POST['idActividad'];
 
-// Validar que no esté inscrito ya en la misma actividad
-$validarIns = $conn->prepare("SELECT * FROM inscripciones WHERE matricula = ? AND idActividad = ?");
+// VALIDAR SI YA ESTÁ INSCRITO A ESA ACTIVIDAD CON ESTADO ACTIVA
+$validarIns = $conn->prepare("
+    SELECT * FROM inscripciones 
+    WHERE matricula = ? AND idActividad = ? AND estado = 'activa'
+");
 $validarIns->bind_param("ii", $matricula, $idActividad);
 $validarIns->execute();
 $resIns = $validarIns->get_result();
 
 if ($resIns->num_rows > 0) {
     echo ("<script>
-        alert('Ya estás inscrito en esta actividad');
+        alert('Ya estás inscrito actualmente en esta actividad.');
         window.history.back();
     </script>");
     exit;
 }
 
-// Insertar inscripción
-$insert = $conn->prepare("INSERT INTO inscripciones (matricula, idActividad) VALUES (?, ?)");
+// SI ESTÁ INSCRITO EN OTRA ACTIVIDAD ACTIVA ENTONCES MARCAMOS EL ESTADO COMO TERMINADA
+$terminar = $conn->prepare("
+    UPDATE inscripciones
+    SET estado = 'terminada'
+    WHERE matricula = ? AND estado = 'activa'
+");
+$terminar->bind_param("i", $matricula);
+$terminar->execute();
+
+// INSERTAR NUEVA INSCRIPCIÓN COMO ACTIVA
+$insert = $conn->prepare("
+    INSERT INTO inscripciones (matricula, idActividad, estado)
+    VALUES (?, ?, 'activa')
+");
 $insert->bind_param("ii", $matricula, $idActividad);
 
 if ($insert->execute()) {
@@ -39,6 +54,5 @@ if ($insert->execute()) {
     </script>");
 }
 
-// Cerrar conexión
 $clase->cerrar();
 ?>

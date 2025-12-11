@@ -1,44 +1,49 @@
 <?php
-session_start();//iniciamos la sesion
-require_once('../modelo/conexion.php');//direccion de la clase dnd esta las variables de bd
+session_start();
+require_once('../modelo/conexion.php');
 
 class Login {
     private $conexion;
 
     public function __construct() {
-        // Crear una instancia de la clase conexión
         $db = new conexion();
-        // Obtener la conexión activa
         $this->conexion = $db->getCon();
     }
 
-    public function verificarUsuario($matricula, $password) {
-        $sql = "SELECT * FROM usuarios WHERE matricula = ? AND psw = ?";
+    public function verificarUsuario($usuario, $password) {
+
+        // Detectar si el usuario ingresó correo o matrícula
+        if (filter_var($usuario, FILTER_VALIDATE_EMAIL)) {
+            // Inicio por correo
+            $sql = "SELECT * FROM usuarios WHERE correo = ? AND psw = ?";
+        } else {
+            // Inicio por matrícula
+            $sql = "SELECT * FROM usuarios WHERE matricula = ? AND psw = ?";
+        }
+
         $stmt = $this->conexion->prepare($sql);
 
         if (!$stmt) {
             die("Error en la preparación: " . $this->conexion->error);
         }
 
-        // Enlazar parámetros
-        $stmt->bind_param("ss", $matricula, $password);
+        $stmt->bind_param("ss", $usuario, $password);
         $stmt->execute();
         $resultado = $stmt->get_result();
 
         if ($resultado->num_rows > 0) {
-            // Obtener los datos del usuario
-            $usuario = $resultado->fetch_assoc();
 
-            // Guardar matrícula (y opcionalmente el nombre) en la sesión
-            $_SESSION['Matricula'] = $usuario['matricula'];
-            $_SESSION['Nombre'] = $usuario['nombre'];
+            $usuarioBD = $resultado->fetch_assoc();
 
-            // Redirigir con PHP 
-            header("Location: ../vista/extracurriculares.php");
+            // Guardar datos en la sesión
+            $_SESSION['Matricula'] = $usuarioBD['matricula'];
+            $_SESSION['Nombre']    = $usuarioBD['nombre'];
+
+            header("Location: ../vista/intro.php");
             exit();
         } else {
             echo "<script>
-                alert('Matrícula o contraseña incorrecta');
+                alert('Usuario (correo/matrícula) o contraseña incorrectos');
                 window.history.back();
             </script>";
         }
@@ -47,12 +52,11 @@ class Login {
     }
 }
 
-// Verifica si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $matricula = $_POST['matricula'];
+    $usuario = $_POST['usuario'];       // matrícula O correo
     $password = $_POST['password'];
 
     $login = new Login();
-    $login->verificarUsuario($matricula, $password);
+    $login->verificarUsuario($usuario, $password);
 }
 ?>
