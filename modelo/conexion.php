@@ -12,7 +12,7 @@ class conexion {
 
     private function conectar() {
         //si estan usando un port diferente en xampp cambienlo al final
-        $this->con = new mysqli($this->servidor, $this->usuario, $this->password, $this->db, 3307);
+        $this->con = new mysqli($this->servidor, $this->usuario, $this->password, $this->db);
         if ($this->con->connect_error) {
             die("Error de conexión: " . $this->con->connect_error);
         }

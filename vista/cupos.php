@@ -68,20 +68,17 @@ if ($inscrito) {
 <header class="encabezado">
   <nav class="navbar-utcj">
 
-    <!-- Botón menú hamburguesa (solo móvil) -->
     <div class="menu-toggle">
       &#9776;
     </div>
 
-    <!-- Logo -->
+
     <div class="logo">
       <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
 
-    <!-- Menú -->
     <ul class="nav-links">
 
-      <!-- Botón cerrar (solo móvil) -->
       <span class="close-btn">&times;</span>
 
       <li><a href="../vista/intro.php">Inicio</a></li>

@@ -47,9 +47,7 @@ $actividades = $listaAct->get_result();
   <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
 </div>
 
-<!-- Mantén la ul tal como está, pero añadimos el close dentro -->
 <ul class="nav-links" id="navLinks">
-  <!-- botón cerrar dentro del panel (aparece solo en móvil) -->
   <li class="close-item">
     <button class="close-btn" id="closeBtn" aria-label="Cerrar menú" type="button">✕</button>
   </li>
@@ -70,7 +68,6 @@ $actividades = $listaAct->get_result();
   </li>
 </ul>
 
-<!-- Botón hamburguesa al final para que esté visualmente a la derecha -->
 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" type="button"></button>
   </nav>
 </header>

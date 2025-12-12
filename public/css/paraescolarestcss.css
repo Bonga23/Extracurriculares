@@ -39,7 +39,7 @@ header p{
 }
 
 .navbar-utcj .nav-links li a:hover {
-  color: #F27021; /* color naranja del sitio UTCJ */
+  color: #F27021; 
 }
 
 /* Contenedor del formulario */
@@ -119,7 +119,6 @@ select, textarea {
   font-weight: 500;
 }
 
-/* Mostrar mensaje al marcar el checkbox */
 .toggle-mensaje:checked ~ .mensaje-exito {
   display: block;
 }
@@ -161,14 +160,13 @@ select, textarea {
   font-weight: bold;
 }
 
-/*estilos de la matricula*/
+
 .user-menu {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-/*estilos de la matricula*/
 .user-menu p {
   cursor: pointer;
   color: #FFD700;

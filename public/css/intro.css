@@ -25,7 +25,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 50px;
-  position: sticky;    /* si quieres que quede fijo al hacer scroll */
+  position: sticky;    
   top: 0;
   z-index: 2000;
 }
@@ -42,7 +42,7 @@ body {
 .navbar-utcj .nav-links {
   list-style: none;
   display: flex;
-  gap: 35px; /* separación más limpia */
+  gap: 35px; 
   align-items: center;
   margin: 0;
 }
@@ -209,10 +209,7 @@ body {
 
 
 
-/* ------------------ RESPONSIVE ------------------ */
-/* ===================== */
-/*     MENÚ HAMBURGUESA  */
-/* ===================== */
+
 
 .menu-toggle {
   display: none;
@@ -247,7 +244,7 @@ body {
   .navbar-utcj .nav-links {
     position: fixed !important;
     top: 0;
-    right: -230px;   /* negativo del mismo ancho */
+    right: -230px;   
     width: 230px;
     height: 100vh;
     background: #002C5F;
@@ -261,17 +258,15 @@ body {
     overflow-y: auto;
   }
 
-  /* Mostrar menú cuando activo */
   .navbar-utcj .nav-links.active {
     right: 0;
   }
 
-  /* Navbar en móvil */
   .navbar-utcj {
     padding: 10px 4vw;
   }
 
-  /* Botón cerrar */
+
   .close-btn {
       display: block;
       font-size: 26px;

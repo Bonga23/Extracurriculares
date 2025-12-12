@@ -12,9 +12,7 @@ body {
   min-height: 100vh;
 }
 
-/* =========================================
-   NAVBAR
-========================================= */
+/* NAVBAR*/
 .navbar-utcj {
   background-color: #002C5F;
   display: flex;
@@ -70,9 +68,7 @@ body {
   list-style: none;
 }
 
-/* =========================================
-   USER MENU
-========================================= */
+/* USER MENU*/
 .user-menu {
   position: relative;
 }
@@ -114,9 +110,7 @@ body {
   display: block;
 }
 
-/* =========================================
-   CARD PERFIL
-========================================= */
+/* CARD PERFIL*/
 main {
   display: flex;
   justify-content: center;
@@ -166,9 +160,7 @@ main {
   border-left: 4px solid #002C5F;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+/* FOOTER */
 .footer {
   background-color: white;
   color: #002C5F;
@@ -189,9 +181,7 @@ main {
   width: 40px;
 }
 
-/* =========================================
-   RESPONSIVIDAD
-========================================= */
+/* RESPONSIVIDAD */
 
 /* Menú móvil */
 @media (max-width: 850px) {
