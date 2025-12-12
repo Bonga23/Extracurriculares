@@ -79,7 +79,10 @@ $actividades = $listaAct->get_result();
         </div>
     <?php else: ?>
         <div class="actividad-actual">
-            <h3>No estás inscrito a ninguna actividad actualmente.</h3>
+             echo ("<script>
+        alert('Aun no estas inscrito en alguna actividad, redirijiendo a inscripciones');
+        window.location.href='../vista/inscripcion.php';
+        </script>");
         </div>
     <?php endif; ?>
 
@@ -105,11 +108,11 @@ $actividades = $listaAct->get_result();
 
 </main>
 
-<footer class="footer">
+  <footer class="footer">
     <div class="info-footer">
       <div>
         <h3>Contacto:</h3>
-        <p>Contáctanos para obtener más información...</p>
+        <p>prensa@utcj.edu.mx  | (656) 649-0600</p>
       </div>
       <div>
         <h3>Mapa del sitio:</h3>
@@ -123,7 +126,7 @@ $actividades = $listaAct->get_result();
     </div>
     <hr>
     <p>© Universidad Tecnológica de Ciudad Juárez</p>
-</footer>
+  </footer>
 
 </body>
 </html>

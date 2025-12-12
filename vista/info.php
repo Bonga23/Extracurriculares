@@ -93,11 +93,11 @@ if (!isset($_SESSION['Matricula'])) {
     </div>
 </section>
 
- <footer class="footer">
+  <footer class="footer">
     <div class="info-footer">
       <div>
         <h3>Contacto:</h3>
-        <p>Contáctanos para obtener más información...</p>
+        <p>prensa@utcj.edu.mx  | (656) 649-0600</p>
       </div>
       <div>
         <h3>Mapa del sitio:</h3>

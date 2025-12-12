@@ -46,6 +46,7 @@ $consulta->execute();
 $inscrito = $consulta->get_result()->num_rows > 0;
 
 
+//agregamos paginas para mandar dependiendo de si esta inscrito en algo o no
 if ($inscrito) {
     $irA = "cambio-paraescolar.php?aviso=1";
 } else {
@@ -102,7 +103,7 @@ if ($inscrito) {
       <p><strong>Cupos ocupados:</strong> <?=$cupos[1]['ocupados']?></p>
       <p><strong>Cupos disponibles:</strong> <?=$cupos[1]['disponibles']?></p>
       <div class="botones">
-        <label for="toggle-basquet" class="btn-vermas"><a href="<?php echo $irA; ?>">Inscribirse</a></label>
+        <label for="toggle-basquet" class="btn-vermas"><a href="#" class="inscribir-btn" data-ir="<?php echo $irA; ?>">Inscribirse</a></label>
         <label for="toggle-basquet" class="btn-vermas">Ver más</label>
       </div>
     </div>
@@ -126,7 +127,7 @@ if ($inscrito) {
       <p><strong>Cupos ocupados:</strong> <?=$cupos[2]['ocupados']?></p>
       <p><strong>Cupos disponibles:</strong> <?=$cupos[2]['disponibles']?></p>
       <div class="botones">
-        <label for="toggle-basquet" class="btn-vermas"><a href="<?php echo $irA; ?>">Inscribirse</a></label>
+        <label for="toggle-basquet" class="btn-vermas"><a href="#" class="inscribir-btn" data-ir="<?php echo $irA; ?>">Inscribirse</a></label>
         <label for="toggle-femenil" class="btn-vermas">Ver más</label>
       </div>
     </div>
@@ -150,7 +151,7 @@ if ($inscrito) {
       <p><strong>Cupos ocupados:</strong> <?=$cupos[3]['ocupados']?></p>
       <p><strong>Cupos disponibles:</strong> <?=$cupos[3]['disponibles']?></p>
       <div class="botones">
-        <label for="toggle-basquet" class="btn-vermas"><a href="<?php echo $irA; ?>">Inscribirse</a></label>
+        <label for="toggle-basquet" class="btn-vermas"><a href="#" class="inscribir-btn" data-ir="<?php echo $irA; ?>">Inscribirse</a></label>
         <label for="toggle-atletismo" class="btn-vermas">Ver más</label>
       </div>
     </div>
@@ -174,7 +175,7 @@ if ($inscrito) {
       <p><strong>Cupos ocupados:</strong> <?=$cupos[4]['ocupados']?></p>
       <p><strong>Cupos disponibles:</strong> <?=$cupos[4]['disponibles']?></p>
       <div class="botones">
-        <label for="toggle-basquet" class="btn-vermas"><a href="<?php echo $irA; ?>">Inscribirse</a></label>
+        <label for="toggle-basquet" class="btn-vermas"><a href="#" class="inscribir-btn" data-ir="<?php echo $irA; ?>">Inscribirse</a></label>
         <label for="toggle-varonil" class="btn-vermas">Ver más</label>
       </div>
     </div>
@@ -198,7 +199,7 @@ if ($inscrito) {
       <p><strong>Cupos ocupados:</strong> <?=$cupos[5]['ocupados']?></p>
       <p><strong>Cupos disponibles:</strong> <?=$cupos[5]['disponibles']?></p>
       <div class="botones">
-        <label for="toggle-basquet" class="btn-vermas"><a href="<?php echo $irA; ?>">Inscribirse</a></label>
+        <label for="toggle-basquet" class="btn-vermas"><a href="#" class="inscribir-btn" data-ir="<?php echo $irA; ?>">Inscribirse</a></label>
         <label for="toggle-taekwondo" class="btn-vermas">Ver más</label>
       </div>
     </div>
@@ -213,25 +214,43 @@ if ($inscrito) {
 
 </section>
 
-<footer class="footer">
-  <div class="info-footer">
-    <div>
-      <h3>Contacto:</h3>
-      <p>Contáctanos para obtener más información...</p>
-    </div>
-    <div>
-      <h3>Mapa del sitio:</h3>
-      <a href="https://search.brave.com/search?q=mapa+utcj&summary=1&conversation=b84cb2d6a290a4480c1c31&view=full&map_src=i&loc_id=loc4BFDG6AQ5TE7UBMRUJNOQ3GS2YBGHIQZHAAAAAAA%3D&bbox=-106.876%2C31.398%2C-105.938%2C31.798" 
+  <footer class="footer">
+    <div class="info-footer">
+      <div>
+        <h3>Contacto:</h3>
+        <p>prensa@utcj.edu.mx  | (656) 649-0600</p>
+      </div>
+      <div>
+        <h3>Mapa del sitio:</h3>
+        <a href="https://search.brave.com/search?q=mapa+utcj&summary=1&conversation=b84cb2d6a290a4480c1c31&view=full&map_src=i&loc_id=loc4BFDG6AQ5TE7UBMRUJNOQ3GS2YBGHIQZHAAAAAAA%3D&bbox=-106.876%2C31.398%2C-105.938%2C31.798" 
    target="_blank" 
    rel="noopener noreferrer">
     <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Mapa" style="width:60px; cursor:pointer;">
 </a>
 
+      </div>
     </div>
-  </div>
-  <hr>
-  <p>© Universidad Tecnológica de Ciudad Juárez</p>
-</footer>
+    <hr>
+    <p>© Universidad Tecnológica de Ciudad Juárez</p>
+  </footer>
+<!--este script sirve para manmdar una alerta si ya esta inscrito antes de redirijir a la pagina que corresponeda-->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const inscrito = <?php echo $inscrito ? 'true' : 'false'; ?>;
 
+    document.querySelectorAll(".inscribir-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+
+            const destino = this.dataset.ir;
+
+            if (inscrito) {
+                alert("Ya tienes una actividad inscrita. Serás dirigido al apartado de cambios.");
+            }
+
+            window.location.href = destino;
+        });
+    });
+});
+</script>
 </body>
 </html>
