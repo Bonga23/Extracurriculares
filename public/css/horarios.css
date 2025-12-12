@@ -1,4 +1,7 @@
-/* Estilos que lleva la pagina*/
+/* ============================== */
+/*          RESET GLOBAL          */
+/* ============================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +9,16 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background-color: #002C5F;
+  color: #111;
+}
 
-/*  NAV    */
+
+/* ============================== */
+/*             NAVBAR             */
+/* ============================== */
+
 .navbar-utcj {
   background-color: #002C5F;
   display: flex;
@@ -37,20 +48,123 @@
 }
 
 .navbar-utcj .nav-links li a:hover {
-  color: #F27021; 
+  color: #F27021;
 }
 
 
-/* Botones */
-.botones {
-  margin-top: 1rem;
+/* =========== BOTÓN HAMBURGUESA =========== */
+
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* =========== BOTÓN DE CERRAR =========== */
+.close-btn {
+  display: none;
+  font-size: 28px;
+  padding: 15px;
+  cursor: pointer;
+  text-align: right;
+  color: white;
+}
+
+
+/* ============================== */
+/*            RESPONSIVE NAV      */
+/* ============================== */
+
+@media (max-width: 850px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* NAV desaparece versión desktop */
+  .navbar-utcj .nav-links {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 210px;
+    height: 100vh;
+    background-color: #002C5F;
+    flex-direction: column;
+    padding-top: 15px;
+    gap: 25px;
+    transition: 0.4s ease;
+    z-index: 1000;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Nav activo cuando se abre */
+  .navbar-utcj .nav-links.active {
+    right: 0;
+  }
+
+  .close-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+}
+
+/* ============================== */
+/*          MENÚ USER             */
+/* ============================== */
+
+.user-menu {
+  position: relative;
   display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  flex-wrap: wrap;
+  align-items: center;
+}
+
+.user-menu p {
+  cursor: pointer;
+  color: #FFD700;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  top: 100%;
+  right: 0;
+  min-width: 150px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown li a {
+  color: white;
+  padding: 10px 16px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown li a:hover {
+  background-color: #444;
+}
+
+.user-menu:hover .dropdown {
+  display: block;
 }
 
 
+/* ============================== */
+/*             TARJETAS           */
+/* ============================== */
 
 .contenedor-cupos {
   display: grid;
@@ -60,24 +174,6 @@
   max-width: 1200px;
   margin: auto;
 }
-nav{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 30px;
-    background-color: #002C5F;
-    width: 100vw;
-}
-
-
-
-nav > a:hover{
-	text-decoration: underline;
-}
-
-
-
 
 .tarjeta img {
   width: 100%;
@@ -99,7 +195,11 @@ nav > a:hover{
   margin: 0.5rem 0;
 }
 
-/* Botones */
+
+/* ============================== */
+/*     BOTONES E INFO EXTRA       */
+/* ============================== */
+
 .botones {
   margin-top: 1rem;
   display: flex;
@@ -107,7 +207,6 @@ nav > a:hover{
   gap: 0.8rem;
   flex-wrap: wrap;
 }
-
 
 .toggle-info {
   display: none;
@@ -120,7 +219,7 @@ nav > a:hover{
   border: 2px solid #009739;
   border-radius: 10px;
   padding: 1rem 1.5rem;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
   text-align: left;
   line-height: 1.6;
   animation: fadeIn 0.3s ease;
@@ -134,13 +233,16 @@ nav > a:hover{
   display: none;
 }
 
-/* Animación*/
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* footer */
+
+/* ============================== */
+/*              FOOTER            */
+/* ============================== */
+
 .footer {
   background-color: white;
   color: 002C5F;
@@ -176,102 +278,12 @@ nav > a:hover{
 .footer p {
   font-weight: bold;
 }
-.user-menu {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-/*estilos de la matricula*/
-.user-menu p {
-  cursor: pointer;
-  color: #FFD700;
-  font-weight: bold;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
 
 
-.dropdown {
-  display: none;
-  position: absolute;
-  background-color: #1a1a1a;
-  border-radius: 6px;
-  list-style: none;
-  padding: 6px 0;
-  margin: 0;
-  top: 100%;
-  right: 0; 
-  min-width: 150px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
+/* ============================== */
+/*           ACTIVIDADES          */
+/* ============================== */
 
-
-.dropdown li a {
-  color: white;
-  padding: 10px 16px;
-  display: block;
-  text-decoration: none;
-}
-
-.dropdown li a:hover {
-  background-color: #444;
-}
-
-
-.user-menu:hover .dropdown {
-  display: block;
-}
-/* responsivo*/
-@media (max-width: 768px) {
-  .contenedor-cupos {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
-
-  .tarjeta img {
-    height: 160px;
-  }
-
-  .info-footer {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width: 600px) {
-  .tarjeta {
-    padding: 1.5rem;
-  }
-
-  .info-extra {
-    padding: 1rem;
-    font-size: 0.95rem;
-  }
-
-  label.btn-vermas,
-  label.btn-vermenos {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-}
-
-/* Estilos mas generalees */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background-color: #002C5F;
-  color: #111;
-}
-
-/* NUEVO DISEÑO DE TARJETAS */
 .contenedor-actividades {
   display: flex;
   flex-direction: column;
@@ -294,7 +306,6 @@ body {
   transform: translateY(-5px);
 }
 
-/* Encabezado con nombre + botón */
 .header-actividad {
   display: flex;
   justify-content: space-between;
@@ -326,7 +337,6 @@ body {
   color: white;
 }
 
-/* Cuerpo dividido en dos columnas */
 .contenido-actividad {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -351,26 +361,24 @@ body {
   line-height: 1.5;
 }
 
-/* Responsivo */
+
+/* Responsive actividades */
 @media (max-width: 768px) {
-    .navbar-utcj {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+
+  .navbar-utcj {
+    flex-direction: row;
+    padding: 15px 20px;
   }
 
-  .navbar-utcj .nav-links {
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px 0;
-  }
   .contenido-actividad {
     grid-template-columns: 1fr;
   }
+
   .header-actividad {
     flex-direction: column;
     gap: 0.5rem;
   }
+
   .btn-ver {
     width: 100%;
   }

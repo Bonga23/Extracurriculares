@@ -19,6 +19,7 @@ body {
 /* NAVBAR */
 .navbar-utcj {
   width: 100%;
+  max-width: 100%;
   background-color: #002C5F;
   display: flex;
   align-items: center;
@@ -32,6 +33,7 @@ body {
 /* Logo */
 .navbar-utcj .logo img {
   height: 70px;
+  max-width: 100%;
   width: auto;
   display: block;
 }
@@ -205,16 +207,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ----- BOTÓN HAMBURGUESA (oculto en desktop) ----- */
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  padding: 8px;
-}
+
 
 /* ------------------ RESPONSIVE ------------------ */
 /* ===================== */
@@ -252,18 +245,20 @@ body {
 
   /* MENÚ LATERAL */
   .navbar-utcj .nav-links {
-      position: fixed !important; /* menú sale del nav */
-      top: 0;
-      right: -250px;   /* oculto */
-      width: 230px;
-      height: 100vh;
-      background: #002C5F;
-      flex-direction: column;
-      justify-content: start;
-      padding: 20px 0;          /* <-- el bueno, ya no 100px */
-      gap: 25px;
-      transition: 0.3s ease-in-out;
-      z-index: 9999 !important;
+    position: fixed !important;
+    top: 0;
+    right: -230px;   /* negativo del mismo ancho */
+    width: 230px;
+    height: 100vh;
+    background: #002C5F;
+    flex-direction: column;
+    justify-content: start;
+    padding: 20px 0;
+    gap: 25px;
+    transition: right 0.3s ease-in-out;
+    z-index: 9999 !important;
+    box-sizing: border-box;
+    overflow-y: auto;
   }
 
   /* Mostrar menú cuando activo */
@@ -273,7 +268,7 @@ body {
 
   /* Navbar en móvil */
   .navbar-utcj {
-    padding: 10px 20px;
+    padding: 10px 4vw;
   }
 
   /* Botón cerrar */
@@ -289,3 +284,5 @@ body {
       margin-bottom: 20px;
   }
 }
+
+

@@ -250,10 +250,10 @@ main {
   /* MENÚ LATERAL */
   .navbar-utcj .nav-links {
       position: fixed !important; /* menú sale del nav */
-      top: 0;
+      top: -25px;
       right: -250px;   /* oculto */
       width: 230px;
-      height: 100vh;
+      height: 150vh;
       background: #002C5F;
       flex-direction: column;
       justify-content: start;
@@ -261,6 +261,7 @@ main {
       gap: 25px;
       transition: 0.3s ease-in-out;
       z-index: 9999 !important;
+      align-items: center;
   }
 
   /* Mostrar menú cuando activo */

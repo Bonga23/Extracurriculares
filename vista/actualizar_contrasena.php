@@ -29,6 +29,7 @@ if (!isset($_SESSION['Matricula'])) {
     <li><a href="../vista/horarios.php">Horarios</a></li>
     <li><a href="../vista/cupos.php">Cupos</a></li>
     <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
+    <li><a href="../vista/info.php">Más información</a></li>
      <li><a href="../vista/perfil.php">MI cuenta</a></li>
     <li class="user-menu">
     <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
