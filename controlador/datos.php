@@ -17,8 +17,6 @@ class datos {
     // Obtener datos del usuario y la actividad ACTIVA (si tiene)
     public function obtenerDatos($matricula) {
 
-        // Ajusta el nombre de columna de la actividad según tu tabla 'actividades'.
-        // Aquí uso 'nombreActividad' como en tu función anterior. Cambia si tu columna se llama distinto.
         $sql = "
             SELECT u.matricula, u.nombre, u.correo, a.nombreActividad AS actividad
             FROM usuarios u
@@ -42,7 +40,6 @@ class datos {
         if ($resultado && $resultado->num_rows > 0) {
             return $resultado->fetch_assoc();
         } else {
-            // devolver un array con al menos las llaves esperadas para evitar warnings en la vista
             return ['matricula' => $matricula, 'nombre' => '', 'correo' => '', 'actividad' => null];
         }
     }

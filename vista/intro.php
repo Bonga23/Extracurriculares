@@ -74,15 +74,15 @@ if (!isset($_SESSION['Matricula'])) {
         <div class="features">
             <div class="feature">
                 <i class="fa-solid fa-clock"></i>
-                <p>Conoce los horarios</p>
+                <p>Conoce los <a href="../vista/horarios.php">horarios</a></p>
             </div>
             <div class="feature">
                 <i class="fas fa-dumbbell"></i>
-                <p>Conoce las actividades</p>
+                <p>Conoce las <a href="../vista/extracurriculares.php">actividades</a></p>
             </div>
             <div class="feature">
                 <i class="fas fa-graduation-cap"></i>
-                <p>Inscríbete</p>
+                <p><a href="../vista/inscripcion.php">Inscríbete</a></p>
             </div>
         </div>
 
@@ -90,21 +90,25 @@ if (!isset($_SESSION['Matricula'])) {
     </div>
 </section>
 
-<footer class="footer">
+  <footer class="footer">
     <div class="info-footer">
       <div>
         <h3>Contacto:</h3>
-        <p>Contáctanos para obtener más información...</p>
+        <p>prensa@utcj.edu.mx  | (656) 649-0600</p>
       </div>
       <div>
         <h3>Mapa del sitio:</h3>
-        <a href="#" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Mapa">
-        </a>
+        <a href="https://search.brave.com/search?q=mapa+utcj&summary=1&conversation=b84cb2d6a290a4480c1c31&view=full&map_src=i&loc_id=loc4BFDG6AQ5TE7UBMRUJNOQ3GS2YBGHIQZHAAAAAAA%3D&bbox=-106.876%2C31.398%2C-105.938%2C31.798" 
+   target="_blank" 
+   rel="noopener noreferrer">
+    <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Mapa" style="width:60px; cursor:pointer;">
+</a>
+
       </div>
     </div>
     <hr>
     <p>© Universidad Tecnológica de Ciudad Juárez</p>
+  </footer>
 </footer>
 
 <script src="../public/js/menu.js"></script>

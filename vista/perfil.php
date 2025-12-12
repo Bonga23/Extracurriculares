@@ -74,7 +74,7 @@ $historial = $info->obtenerHistorial($matricula);
         <div class="info">
             <p><strong>Nombre:</strong> <?= $usuario['nombre'] ?></p>
             <p><strong>Correo:</strong> <?= $usuario['correo'] ?></p>
-            <p><strong>Paraescolar inscrita:</strong> 
+            <p><strong>Actividad inscrita:</strong> 
             <?= $usuario['actividad'] !== null ? $usuario['actividad'] : "Sin actividad" ?>
             </p>
             <hr>
