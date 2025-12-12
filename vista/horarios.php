@@ -39,25 +39,37 @@ if ($inscrito) {
 
 <body>
 <header class="encabezado">
-  <nav class="navbar-utcj">
+ <nav class="navbar-utcj">
+
     <div class="logo">
-      <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
+        <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
     </div>
+
+    <!-- Botón hamburguesa -->
+    <div class="menu-toggle">&#9776;</div>
+
     <ul class="nav-links">
-      <li><a href="../vista/intro.php">Inicio</a></li>
-      <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
-      <li><a href="../vista/horarios.php">Horarios</a></li>
-      <li><a href="../vista/cupos.php">Cupos</a></li>
-      <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
-      <li><a href="../vista/perfil.php">MI cuenta</a></li>
-      <li class="user-menu">
-        <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
-        <ul class="dropdown">
-            <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
-        </ul>
-      </li>
+        <!-- Botón cerrar -->
+        <li class="close-btn">✖</li>
+
+        <li><a href="../vista/intro.php">Inicio</a></li>
+        <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+        <li><a href="../vista/horarios.php">Horarios</a></li>
+        <li><a href="../vista/cupos.php">Cupos</a></li>
+        <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
+        <li><a href="../vista/info.php">Más información</a></li>
+        <li><a href="../vista/perfil.php">Mi cuenta</a></li>
+
+        <li class="user-menu">
+            <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
+            <ul class="dropdown">
+                <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
+            </ul>
+        </li>
     </ul>
-  </nav>
+
+</nav>
+
 </header> 
 
 <section class="contenedor-actividades">
@@ -202,6 +214,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
+
+<script src="../public/js/menu.js"></script>
+
 
 </body>
 </html>

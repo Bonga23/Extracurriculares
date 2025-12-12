@@ -4,10 +4,15 @@
   box-sizing: border-box;
 }
 
-html, body {
+html {
+  height: 100%; 
+}
+
+body {
   width: 100%;
-  padding: 0;
-  margin: 0;
+  min-height: 100vh; 
+  display: flex;     
+  flex-direction: column; 
   overflow-x: hidden;
   background-color: #002C5F;
   font-family: "Poppins", sans-serif;
@@ -34,6 +39,7 @@ header.encabezado {
 .logo {
   display: flex;
   align-items: center;
+  z-index: 1200; 
 }
 
 .logo img {
@@ -63,6 +69,8 @@ header.encabezado {
 /* USUARIO */
 .user-menu {
   position: relative;
+  display: flex; 
+  align-items: center;
 }
 
 .user-menu p {
@@ -70,6 +78,10 @@ header.encabezado {
   font-weight: bold;
   cursor: pointer;
   user-select: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 /* DROPDOWN */
@@ -84,12 +96,13 @@ header.encabezado {
   right: 0;
   min-width: 150px;
   z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
 .dropdown li a {
   display: block;
   color: white;
-  padding: 10px;
+  padding: 10px 16px;
 }
 
 .dropdown li a:hover {
@@ -100,13 +113,13 @@ header.encabezado {
   display: block;
 }
 
-/*  CONTENEDOR FORMULARIO */
 .contenedor-formulario {
   width: 100%;
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
   color: white;
+  flex: 1; 
 }
 
 .contenedor-formulario h2 {
@@ -158,12 +171,116 @@ button {
   border-color: #002C5F;
 }
 
-/*  FOOTER */
+
+.contenedor-cupos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  flex: 1; 
+}
+
+.tarjeta {
+  position: relative;
+  background: white;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  border: 1px solid black;
+}
+
+.tarjeta h2 {
+  color: #002C5F;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.tarjeta p {
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+/* Botones Tarjetas */
+.botones {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+a.btn-inscribirse,
+label.btn-vermas,
+label.btn-vermenos {
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  border: 2px solid #002C5F;
+  background: white;
+  color: #002C5F;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+a.btn-inscribirse:hover,
+label.btn-vermas:hover,
+label.btn-vermenos:hover {
+  background: #002C5F;
+  color: white;
+}
+
+.toggle-info {
+  display: none;
+}
+
+.info-extra {
+  display: none;
+  margin-top: 1rem;
+  background: #fff;
+  border: 2px solid #002C5F;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  text-align: left;
+  line-height: 1.6;
+}
+
+.toggle-info:checked ~ .info-extra {
+  display: block;
+}
+
+.toggle-info:checked ~ .vista-normal {
+  display: none;
+}
+
+/* FOOTER */
 .footer {
   background: white;
+  color: #002C5F;
   padding: 1.5rem;
   text-align: center;
   border-top: 4px solid black;
+  margin-top: auto; 
+  width: 100%;
 }
 
 .info-footer {
@@ -171,6 +288,7 @@ button {
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
 .info-footer img {
@@ -178,58 +296,133 @@ button {
   max-width: 100%;
 }
 
-/* RESPONSIVE TABLET (≤1024px) */
-@media (max-width: 1024px) {
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 1300;
+}
+
+.menu-toggle::before { content: "☰"; display: inline-block; line-height: 1; }
+
+/* Botón cerrar dentro del panel */
+.close-item { width: 100%; display: none; }
+.close-btn {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 12px 16px;
+}
+
+/* CAPA OSCURA */
+body.menu-open::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1050;
+  pointer-events: auto;
+}
+
+/*  MEDIA QUERIES (RESPONSIVO) */
+
+/* --- TABLET / MÓVIL GRANDE (Menú Lateral) --- */
+@media (max-width: 850px) {
+  .menu-toggle {
+    display: block;
+  }
 
   .navbar-utcj {
-    padding: 12px 18px;
+    padding: 10px 20px;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .nav-links {
-    gap: 16px;
+  .navbar-utcj .nav-links {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 230px;
+    height: 100vh;
+    background: #002C5F;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 20px;
+    gap: 25px;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    z-index: 9999;
   }
 
-  .contenedor-formulario {
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
+  .navbar-utcj .nav-links.active {
+    right: 0;
+  }
+
+  .close-btn {
+    display: block;
   }
 }
 
-/*  RESPONSIVE CELULAR (≤768px) */
+/* --- MÓVIL MEDIANO --- */
 @media (max-width: 768px) {
-
-  .navbar-utcj {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 10px;
+  .contenedor-cupos {
+    grid-template-columns: 1fr;
+    padding: 1rem;
   }
 
-  .logo {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 12px;
-  }
-
-  .nav-links li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .contenedor-formulario {
-    margin: 20px auto;
-    padding: 10px;
+  .tarjeta img {
+    height: 160px;
   }
 
   .info-footer {
     flex-direction: column;
+    text-align: center;
     gap: 20px;
+  }
+}
+
+/* --- MÓVIL PEQUEÑO --- */
+@media (max-width: 600px) {
+  .tarjeta {
+    padding: 1.5rem;
+  }
+
+  .info-extra {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  label.btn-vermas,
+  label.btn-vermenos {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-utcj .nav-links.active {
+    right: 0;
+  }
+
+
+  .close-item {
+    display: block; 
+    width: 100%;
+    text-align: right; 
+    padding-right: 20px; 
+  }
+
+  .close-btn {
+    display: inline-block;
   }
 }

@@ -43,26 +43,32 @@ $actividades = $listaAct->get_result();
 
 <header class="encabezado">
   <nav class="navbar-utcj">
-    <div class="logo">
-      <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
-    </div>
-    <ul class="nav-links">
-    <li><a href="../vista/intro.php">Inicio</a></li>
-    <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
-    <li><a href="../vista/horarios.php">Horarios</a></li>
-    <li><a href="../vista/cupos.php">Cupos</a></li>
-    <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
-     <li><a href="../vista/perfil.php">MI cuenta</a></li>
-    <li class="user-menu">
+<div class="logo">
+  <img src="../public/img/logo_utcj.png" alt="Logo UTCJ">
+</div>
+
+<ul class="nav-links" id="navLinks">
+  <li class="close-item">
+    <button class="close-btn" id="closeBtn" aria-label="Cerrar menú" type="button">✕</button>
+  </li>
+
+  <li><a href="../vista/intro.php">Inicio</a></li>
+  <li><a href="../vista/extracurriculares.php">Extracurriculares</a></li>
+  <li><a href="../vista/horarios.php">Horarios</a></li>
+  <li><a href="../vista/cupos.php">Cupos</a></li>
+  <li><a href="../vista/cambio-paraescolar.php">Cambios</a></li>
+  <li><a href="../vista/info.php">Más información</a></li>
+  <li><a href="../vista/perfil.php">MI cuenta</a></li>
+
+  <li class="user-menu">
     <p><?php echo $_SESSION['Matricula']; ?> ⮟</p>
     <ul class="dropdown">
-                <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
-     </ul>
-    </li>
-
-
-
+      <li><a href="../controlador/cerrarsesion.php">Cerrar sesión</a></li>
     </ul>
+  </li>
+</ul>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" type="button"></button>
   </nav>
 </header>
 
@@ -127,6 +133,9 @@ $actividades = $listaAct->get_result();
     <hr>
     <p>© Universidad Tecnológica de Ciudad Juárez</p>
   </footer>
+
+  <script src="../public/js/menu.js"></script>
+
 
 </body>
 </html>

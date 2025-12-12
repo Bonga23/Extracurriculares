@@ -45,9 +45,9 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 44, 95, 0.7); /* azul UTCJ con transparencia */
-    z-index: -1; /* se queda detrás del contenido */
-    pointer-events: none; /* no bloquea clics */
+    background: rgba(0, 44, 95, 0.7); 
+    z-index: -1; 
+    pointer-events: none; 
 }
 
 
